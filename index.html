@@ -25,7 +25,7 @@
     }
     .ticker-bar {
       width: 100%;
-      height: 34px;
+      height: 46px;
       background: rgba(10,18,6,0.98);
       border-bottom: 1px solid var(--border);
       overflow: hidden;
@@ -41,11 +41,11 @@
     .ticker-track { display:inline-flex; align-items:center; white-space:nowrap; animation:ticker-move 45s linear infinite; will-change:transform; }
     .ticker-track:hover { animation-play-state:paused; }
     @keyframes ticker-move { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-    .ticker-item { display:inline-flex; align-items:center; gap:0.38rem; padding:0 1.1rem; border-right:1px solid rgba(140,200,80,0.1); line-height:1; }
-    .tk-emoji { font-size:0.8rem; opacity:0.75; }
-    .tk-nome  { font-size:0.65rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); }
-    .tk-valor { font-family:'JetBrains Mono',monospace; font-size:0.75rem; font-weight:600; color:var(--cream); }
-    .tk-chg   { font-family:'JetBrains Mono',monospace; font-size:0.62rem; font-weight:600; padding:0.08rem 0.28rem; border-radius:3px; }
+    .ticker-item { display:inline-flex; align-items:center; gap:0.38rem; padding:0 1.4rem; border-right:1px solid rgba(140,200,80,0.1); line-height:1; }
+    .tk-emoji { font-size: 1.2rem; opacity: 0.75; }
+    .tk-nome  { font-size: 0.95rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+    .tk-valor { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 600; color: var(--cream); }
+    .tk-chg   { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; font-weight: 600; padding: 0.12rem 0.38rem; border-radius: 3px; }
     .tk-chg.up  { color:var(--up); background:rgba(78,201,106,.15); }
     .tk-chg.dn  { color:var(--dn); background:rgba(224,80,80,.15);  }
     .tk-chg.neu { color:var(--muted); }
