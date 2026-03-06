@@ -1,178 +1,183 @@
-import requests
+"""
+Scraper de cotações agropecuárias – Sorriso/MT
+Fonte: Bolsa Brasileira de Mercadorias (BBM) – mercado físico disponível
+Câmbio: API BCB (Banco Central do Brasil)
+"""
+
+import json, re, time, datetime, requests
 from bs4 import BeautifulSoup
-import json
-import time
-from datetime import datetime
 
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-    'Accept-Language': 'pt-BR,pt;q=0.9',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/122.0.0.0 Safari/537.36"
+    ),
+    "Accept-Language": "pt-BR,pt;q=0.9",
 }
 
-BASE_URL = 'https://www.noticiasagricolas.com.br/cotacoes'
-
-# Mapeamento: id_produto -> (slug_url, termo_busca_regiao)
-# termo_busca_regiao: texto que identifica a linha de Sorriso/MT na tabela fÃ­sica
-# Se None, pega o primeiro indicador disponÃ­vel (produtos sem dado regional de Sorriso)
-PRODUTOS_CONFIG = {
-    'soja':    ('soja',           'Sorriso/MT'),
-    'milho':   ('milho',          'Sorriso/MT'),
-    'algodao': ('algodao',        'Sorriso/MT'),
-    'trigo':   ('trigo',          'Sorriso/MT'),
-    'arroz':   ('arroz',          'Sorriso/MT'),
-    'sorgo':   ('sorgo',          'Sorriso/MT'),
-    'boi':     ('boi-gordo',      'Sorriso/MT'),
-    'frango':  ('frango',         None),          # sem dado regional Sorriso
-    'suinos':  ('suinos',         None),
-    'leite':   ('leite',          'Sorriso/MT'),
-    'cafe':    ('cafe',           None),
-    'sucroenergetico': ('sucroenergetico', None),
-    'laranja': ('laranja',        None),
-}
-
-def get_page(url):
+# ─── Câmbio USD/BRL via BCB ────────────────────────────────────────────────
+def fetch_cambio():
     try:
-        r = requests.get(url, headers=HEADERS, timeout=20)
-        r.raise_for_status()
-        return BeautifulSoup(r.text, 'html.parser')
-    except Exception as e:
-        print(f'  ERRO ao buscar {url}: {e}')
-        return None
-
-def extrair_sorriso(soup, termo):
-    """
-    Procura a linha com 'termo' nas tabelas de mercado fÃ­sico.
-    Retorna dict com valor, variacao, indicador, unidade, data.
-    """
-    rows = soup.find_all('tr')
-    for row in rows:
-        tds = row.find_all('td')
-        if len(tds) >= 2 and termo.lower() in tds[0].get_text(strip=True).lower():
-            local = tds[0].get_text(strip=True)
-            valor = tds[1].get_text(strip=True)
-            var   = tds[2].get_text(strip=True) if len(tds) > 2 else ''
-            # Ignora linhas sem cotaÃ§Ã£o
-            if not valor or valor.lower() in ('s/ cotaÃ§Ã£o', '-', ''):
-                continue
-            return {
-                'indicador': local,
-                'valor':     valor,
-                'variacao':  var,
-                'unidade':   'R$/Saca 60 kg',
-                'data':      datetime.now().strftime('%d/%m/%Y'),
-            }
+        url = (
+            "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/"
+            "CotacaoDolarDia(dataCotacao=@dataCotacao)"
+            "?@dataCotacao='%s'&$top=1&$format=json&$select=cotacaoVenda"
+            % datetime.date.today().strftime("%m-%d-%Y")
+        )
+        r = requests.get(url, headers=HEADERS, timeout=10)
+        val = r.json()["value"]
+        if val:
+            return round(val[0]["cotacaoVenda"], 4)
+    except Exception:
+        pass
+    try:
+        ontem = (datetime.date.today() - datetime.timedelta(days=1)).strftime("%m-%d-%Y")
+        url2 = (
+            "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/"
+            "CotacaoDolarDia(dataCotacao=@dataCotacao)"
+            "?@dataCotacao='%s'&$top=1&$format=json&$select=cotacaoVenda" % ontem
+        )
+        r2 = requests.get(url2, headers=HEADERS, timeout=10)
+        val2 = r2.json()["value"]
+        if val2:
+            return round(val2[0]["cotacaoVenda"], 4)
+    except Exception:
+        pass
     return None
 
-def extrair_primeiro_indicador(soup):
-    """Fallback: pega o primeiro bloco de cotaÃ§Ã£o (indicador principal)."""
-    indicadores = []
-
-    # Tenta tabelas com th/td (padrÃ£o do site)
-    tabelas = soup.find_all('table')
-    for tabela in tabelas:
-        headers = tabela.find_all('th')
-        rows    = tabela.find_all('tr')
-        if not headers or not rows:
-            continue
-        col_names = [h.get_text(strip=True) for h in headers]
-
-        # Determina Ã­ndices
-        idx_val = next((i for i, h in enumerate(col_names) if 'valor' in h.lower() or 'r$' in h.lower() or 'fechamento' in h.lower()), 1)
-        idx_var = next((i for i, h in enumerate(col_names) if 'varia' in h.lower()), 2)
-        idx_dat = next((i for i, h in enumerate(col_names) if 'data' in h.lower() or 'mÃªs' in h.lower() or 'mes' in h.lower()), 0)
-
-        # Tenta pegar o tÃ­tulo do bloco
-        bloco = tabela.find_parent(['div', 'section'])
-        titulo = ''
-        if bloco:
-            h = bloco.find(['h2', 'h3', 'h4'])
-            if h:
-                titulo = h.get_text(strip=True)
-            subtitulo_el = bloco.find(class_=lambda c: c and ('fonte' in c or 'subtitle' in c or 'sub' in c))
-            subtitulo = subtitulo_el.get_text(strip=True) if subtitulo_el else ''
-        else:
-            titulo = ''
-            subtitulo = ''
-
-        for row in rows[1:]:  # pula cabeÃ§alho
-            tds = row.find_all('td')
-            if not tds or len(tds) < 2:
-                continue
-            try:
-                val = tds[idx_val].get_text(strip=True)
-                var = tds[idx_var].get_text(strip=True) if len(tds) > idx_var else ''
-                dat = tds[idx_dat].get_text(strip=True) if len(tds) > idx_dat else ''
-                unidade_el = tabela.find('th', string=lambda s: s and ('valor' in s.lower() or 'r$' in s.lower()))
-                unidade = unidade_el.get_text(strip=True) if unidade_el else ''
-
-                if val and val not in ('-', 's/ cotaÃ§Ã£o'):
-                    indicadores.append({
-                        'indicador': titulo or 'Indicador Principal',
-                        'valor':     val,
-                        'variacao':  var,
-                        'unidade':   unidade,
-                        'data':      dat,
-                    })
-                    break  # sÃ³ o primeiro
-            except Exception:
-                continue
-        if indicadores:
-            break
-
-    return indicadores
-
-def scrape_produto(prod_id, slug, termo_sorriso):
-    url = f'{BASE_URL}/{slug}'
-    print(f'  [{prod_id}] {url}')
-    soup = get_page(url)
-    if not soup:
-        return {'indicadores': []}
-
-    resultado = {'indicadores': []}
-
-    if termo_sorriso:
-        ind = extrair_sorriso(soup, termo_sorriso)
-        if ind:
-            resultado['indicadores'] = [ind]
-            print(f'    â Sorriso/MT: {ind["valor"]} ({ind["variacao"]})')
-        else:
-            print(f'    â  Sorriso/MT nÃ£o encontrado, usando fallback')
-            resultado['indicadores'] = extrair_primeiro_indicador(soup)
-    else:
-        resultado['indicadores'] = extrair_primeiro_indicador(soup)
-        if resultado['indicadores']:
-            print(f'    â Fallback: {resultado["indicadores"][0]["valor"]}')
-
-    return resultado
-
-def scrape_cambio():
+def parse_brl(s):
+    s = re.sub(r"[R$\\s]", "", s).replace(".", "").replace(",", ".")
     try:
-        url = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao=%27{data}%27&$format=json'.format(
-            data=datetime.now().strftime('%m-%d-%Y')
+        return float(s)
+    except ValueError:
+        return None
+
+# ─── Scraping BBM Bolsa (Sorriso/MT) ───────────────────────────────────────
+def scrape_bbm():
+    url = "https://www.bbmbolsa.com.br/cotacoes-agricolas/"
+    r = requests.get(url, headers=HEADERS, timeout=20)
+    r.raise_for_status()
+    html = r.text
+
+    def find_sorriso(produto_keyword, unidade, nome):
+        idx_prod = html.lower().find(("<h4>" + produto_keyword.lower() + "</h4>"))
+        if idx_prod == -1:
+            idx_prod = html.lower().find(produto_keyword.lower() + "</h4>")
+        if idx_prod == -1:
+            return None
+        chunk = html[idx_prod:idx_prod+8000]
+        idx_s = chunk.find("Sorriso")
+        if idx_s == -1:
+            return None
+        snippet = chunk[idx_s:idx_s+500]
+        clean = re.sub(r"<[^>]+>", " ", snippet)
+        clean = re.sub(r"\\s+", " ", clean).strip()
+        m = re.search(
+            r"Sorriso[^\\d]*R\\$\\s*([\\d\\.,]+)\\s+([-\\d,]+%)\\s+([-\\d,]+%)",
+            clean
         )
-        r = requests.get(url, timeout=10)
-        dados = r.json()
-        valor = dados['value'][0]['cotacaoVenda'] if dados.get('value') else None
-        return {'indicadores': [{'indicador': 'DÃ³lar (venda)', 'valor': f'{valor:.4f}' if valor else 'â', 'variacao': '', 'unidade': 'BRL/USD', 'data': datetime.now().strftime('%d/%m/%Y')}]}
+        if m:
+            return {
+                "produto": nome,
+                "valor": "R$ " + m.group(1),
+                "variacao": m.group(2),
+                "unidade": unidade,
+                "praca": "Sorriso/MT",
+                "fonte": "BBM Bolsa",
+            }
+        return None
+
+    resultados = {}
+    soja = find_sorriso("Soja", "R$/60kg", "Soja")
+    if soja:
+        resultados["soja"] = soja
+    milho = find_sorriso("Milho", "R$/60kg", "Milho")
+    if milho:
+        resultados["milho"] = milho
+    return resultados
+
+# ─── Cotações CEPEA/ESALQ via Notícias Agrícolas ───────────────────────────
+CEPEA_URLS = {
+    "boi-gordo":       ("https://www.noticiasagricolas.com.br/cotacoes/boi-gordo", "R$/arroba", "Boi Gordo"),
+    "cafe":            ("https://www.noticiasagricolas.com.br/cotacoes/cafe/cafe-arabica-esalq-bmf", "R$/saca", "Café"),
+    "algodao":         ("https://www.noticiasagricolas.com.br/cotacoes/algodao/algodao-esalq", "R$/arroba", "Algodão"),
+    "trigo":           ("https://www.noticiasagricolas.com.br/cotacoes/trigo/trigo-parana", "R$/sc", "Trigo"),
+    "arroz":           ("https://www.noticiasagricolas.com.br/cotacoes/arroz/arroz-esalq", "R$/sc", "Arroz"),
+    "frango":          ("https://www.noticiasagricolas.com.br/cotacoes/frango/frango-embrapa", "R$/kg", "Frango"),
+    "suinos":          ("https://www.noticiasagricolas.com.br/cotacoes/suinos/suinos-cepea-esalq", "R$/kg", "Suínos"),
+    "leite":           ("https://www.noticiasagricolas.com.br/cotacoes/leite/leite-cepea", "R$/litro", "Leite"),
+    "sorgo":           ("https://www.noticiasagricolas.com.br/cotacoes/milho/sorgo-cepea-esalq", "R$/sc", "Sorgo"),
+    "sucroenergetico": ("https://www.noticiasagricolas.com.br/cotacoes/cana-de-acucar/acucar-cristal-esalq", "R$/sc", "Açúcar"),
+    "laranja":         ("https://www.noticiasagricolas.com.br/cotacoes/laranja/laranja-esalq", "R$/cx", "Laranja"),
+}
+
+def scrape_cepea(pid, url, unidade, nome):
+    try:
+        r = requests.get(url, headers=HEADERS, timeout=15)
+        r.raise_for_status()
+        soup = BeautifulSoup(r.text, "html.parser")
+        tabela = soup.find("table", class_="cot-fisio") or soup.find("table")
+        if tabela is None:
+            return None
+        linhas = tabela.find_all("tr")
+        for linha in linhas[1:3]:
+            cols = [td.get_text(strip=True) for td in linha.find_all(["td", "th"])]
+            if len(cols) >= 2:
+                valor = cols[1] if len(cols) > 1 else cols[0]
+                variacao = cols[2] if len(cols) > 2 else "–"
+                if valor and valor not in ["-", "–", ""]:
+                    return {
+                        "produto": nome,
+                        "valor": valor,
+                        "variacao": variacao,
+                        "unidade": unidade,
+                        "praca": "CEPEA/ESALQ",
+                        "fonte": "Notícias Agrícolas",
+                    }
     except Exception as e:
-        print(f'  CÃ¢mbio erro: {e}')
-        return {'indicadores': []}
+        print(f"  ERRO {pid}: {e}")
+    return None
 
+# ─── MAIN ──────────────────────────────────────────────────────────────────
 def main():
-    print('=== Scraper AgroQuote â Sorriso/MT ===')
-    resultado = {'gerado_em': datetime.now().strftime('%d/%m/%Y %H:%M'), 'dados': {}}
+    dados = {}
+    agora = datetime.datetime.now().strftime("%d/%m/%Y %H:%M")
+    print("=== Scraper AgroQuote – Sorriso/MT ===")
 
-    for prod_id, (slug, termo) in PRODUTOS_CONFIG.items():
-        resultado['dados'][prod_id] = scrape_produto(prod_id, slug, termo)
-        time.sleep(0.8)
+    print("\n[1] Câmbio USD/BRL...")
+    cambio = fetch_cambio()
+    print(f"    USD/BRL = {cambio}")
 
-    resultado['dados']['cambio'] = scrape_cambio()
+    print("\n[2] BBM Bolsa – Sorriso/MT...")
+    try:
+        bbm = scrape_bbm()
+        for pid, item in bbm.items():
+            dados[pid] = item
+            print(f"    {pid}: {item['valor']} ({item['variacao']})")
+    except Exception as e:
+        print(f"    ERRO BBM: {e}")
 
-    with open('cotacoes.json', 'w', encoding='utf-8') as f:
-        json.dump(resultado, f, ensure_ascii=False, indent=2)
+    print("\n[3] CEPEA/Notícias Agrícolas...")
+    for pid, (url, unidade, nome) in CEPEA_URLS.items():
+        print(f"    {pid}...", end=" ", flush=True)
+        result = scrape_cepea(pid, url, unidade, nome)
+        if result:
+            dados[pid] = result
+            print(f"{result['valor']} ({result['variacao']})")
+        else:
+            print("sem dados")
+        time.sleep(0.5)
 
-    print(f'\nâ cotacoes.json salvo â {datetime.now().strftime("%d/%m/%Y %H:%M")}')
+    saida = {
+        "gerado_em": agora,
+        "cambio_usd_brl": cambio,
+        "praca_principal": "Sorriso/MT",
+        "dados": dados,
+    }
+    with open("cotacoes.json", "w", encoding="utf-8") as f:
+        json.dump(saida, f, ensure_ascii=False, indent=2)
+    print(f"\n✅ cotacoes.json gerado com {len(dados)} produtos.")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
