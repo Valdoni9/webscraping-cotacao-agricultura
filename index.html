@@ -3,611 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AgroQuote — Cotações do Campo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <title>AgroQuote — Cotações Agropecuárias</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    /* ── Reset & Variáveis ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg:           #0e1209;
-      --bg2:          #151a0f;
-      --surface:      rgba(255,255,255,0.038);
-      --border:       rgba(180,210,120,0.10);
-      --border-hover: rgba(180,210,120,0.30);
-      --green:        #7ab648;
-      --green-dim:    #4a7a20;
-      --amber:        #d4900a;
-      --amber-light:  #f0b030;
-      --cream:        #f0ead8;
-      --muted:        #8a9070;
-      --red:          #d94f3d;
-      --up:           #5cbf6a;
-      --dn:           #d94f3d;
+      --bg:#0f1a0a; --surface:#172010; --surface2:#1e2c14;
+      --border:rgba(140,200,80,0.12); --green:#6db33f; --green-dim:#3d7020;
+      --green-lit:#8fd458; --amber:#e8a020; --cream:#eef0e8; --muted:#7a8c6a;
+      --up:#4ec96a; --dn:#e05050; --radius:10px;
     }
-
-    html { font-size: 16px; scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--cream);
-      font-family: 'Outfit', sans-serif;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* Grain texture */
-    body::after {
-      content: '';
-      position: fixed; inset: 0; z-index: 0; pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
-    }
-
-    /* ── Header ── */
-    header {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(14,18,9,0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem; flex-wrap: wrap;
-      min-height: 64px;
-    }
-
-    .logo {
-      display: flex; align-items: center; gap: .7rem;
-    }
-    .logo-icon {
-      width: 36px; height: 36px;
-      background: linear-gradient(135deg, var(--green-dim), var(--green));
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-    }
-    .logo-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--cream);
-      letter-spacing: -.02em;
-    }
-    .logo-text span { color: var(--green); }
-
-    .header-right {
-      display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
-    }
-    .status-pill {
-      display: flex; align-items: center; gap: .4rem;
-      padding: .3rem .8rem; border-radius: 99px;
-      border: 1px solid var(--border);
-      font-size: .72rem; color: var(--muted);
-    }
-    .status-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--up);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%,100% { opacity: 1; } 50% { opacity: .3; }
-    }
-    #clock {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .78rem; color: var(--muted);
-    }
-    .btn-update {
-      display: flex; align-items: center; gap: .4rem;
-      padding: .35rem .9rem; border-radius: 6px;
-      background: var(--green-dim); border: 1px solid var(--green);
-      color: var(--cream); font-family: 'Outfit', sans-serif;
-      font-size: .78rem; font-weight: 500; cursor: pointer;
-      transition: all .2s;
-    }
-    .btn-update:hover { background: var(--green); color: var(--bg); }
-    .btn-update svg { width: 12px; height: 12px; }
-    .btn-update.loading svg { animation: spin .7s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* ── Hero ── */
-    .hero {
-      position: relative; z-index: 1;
-      padding: 3rem 2rem 1.5rem;
-      display: flex; align-items: flex-end; justify-content: space-between;
-      flex-wrap: wrap; gap: 1rem;
-    }
-    .hero-left h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      line-height: 1.1;
-      font-weight: 700;
-    }
-    .hero-left h1 em {
-      font-style: italic;
-      color: var(--amber-light);
-    }
-    .hero-left p {
-      margin-top: .6rem;
-      font-size: .85rem; font-weight: 300;
-      color: var(--muted);
-    }
-    .hero-meta {
-      text-align: right;
-      font-size: .72rem; color: var(--muted);
-      line-height: 1.7;
-    }
-    .hero-meta strong {
-      display: block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .8rem; color: var(--amber-light);
-    }
-
-    /* ── Banner de aviso ── */
-    .info-banner {
-      position: relative; z-index: 1;
-      margin: 0 2rem;
-      padding: .6rem 1rem;
-      background: rgba(212,144,10,.08);
-      border: 1px solid rgba(212,144,10,.25);
-      border-radius: 6px;
-      font-size: .74rem; color: var(--amber-light);
-      display: flex; align-items: center; gap: .5rem;
-    }
-
-    /* ── Filtros ── */
-    main { position: relative; z-index: 1; padding: 1.5rem 2rem 4rem; }
-
-    .filter-bar {
-      display: flex; gap: .45rem; flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
-    .f-btn {
-      padding: .35rem 1rem; border-radius: 99px;
-      border: 1px solid var(--border);
-      background: transparent; color: var(--muted);
-      font-family: 'Outfit', sans-serif; font-size: .77rem;
-      cursor: pointer; transition: all .2s;
-    }
-    .f-btn:hover { border-color: var(--green); color: var(--green); }
-    .f-btn.active {
-      background: var(--green); border-color: var(--green);
-      color: var(--bg); font-weight: 600;
-    }
-
-    /* ── Grid ── */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.1rem;
-    }
-
-    /* ── Card ── */
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform .25s, border-color .25s, box-shadow .25s;
-      animation: fadeUp .5s ease both;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-hover);
-      box-shadow: 0 12px 32px rgba(0,0,0,.5), 0 0 0 1px rgba(122,182,72,.1);
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .card-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 1.25rem .75rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .card-title-wrap { display: flex; align-items: center; gap: .6rem; }
-    .card-emoji {
-      width: 36px; height: 36px; border-radius: 8px;
-      background: rgba(255,255,255,.06);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; flex-shrink: 0;
-    }
-    .card-name {
-      font-size: .72rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: .08em;
-      color: var(--muted);
-    }
-    .card-source {
-      font-size: .62rem; font-weight: 600;
-      padding: .18rem .5rem; border-radius: 4px;
-      text-transform: uppercase; letter-spacing: .06em;
-    }
-    .src-na  { background: rgba(122,182,72,.15); color: var(--green); border: 1px solid rgba(122,182,72,.3); }
-    .src-bcb { background: rgba(212,144,10,.15); color: var(--amber-light); border: 1px solid rgba(212,144,10,.3); }
-
-    /* Indicadores dentro do card */
-    .card-body { padding: .85rem 1.25rem 1rem; }
-
-    .indicador {
-      padding: .6rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .indicador:last-child { border-bottom: none; padding-bottom: 0; }
-    .indicador:first-child { padding-top: 0; }
-
-    .ind-label {
-      font-size: .68rem; color: var(--muted);
-      margin-bottom: .3rem;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
-    .ind-main {
-      display: flex; align-items: baseline;
-      justify-content: space-between; gap: .5rem;
-      flex-wrap: wrap;
-    }
-    .ind-valor {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1.45rem; font-weight: 500;
-      color: var(--cream); line-height: 1;
-    }
-    .ind-unidade {
-      font-size: .62rem; color: var(--muted);
-      margin-left: .2rem;
-    }
-    .ind-chg {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .75rem; font-weight: 500;
-      padding: .18rem .45rem; border-radius: 4px;
-    }
-    .ind-chg.up  { background: rgba(92,191,106,.12); color: var(--up); }
-    .ind-chg.dn  { background: rgba(217,79,61,.12);  color: var(--dn); }
-    .ind-chg.neu { background: rgba(255,255,255,.05); color: var(--muted); }
-
-    .ind-data {
-      margin-top: .25rem;
-      font-size: .62rem; color: var(--muted); opacity: .7;
-    }
-
-    /* Skeleton */
-    .skel {
-      background: linear-gradient(90deg,
-        rgba(255,255,255,.04) 25%,
-        rgba(255,255,255,.08) 50%,
-        rgba(255,255,255,.04) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.5s infinite;
-      border-radius: 5px;
-    }
-    .skel-lg { height: 1.6rem; width: 60%; margin-bottom: .4rem; }
-    .skel-sm { height: .65rem; width: 35%; }
-    @keyframes shimmer {
-      0%   { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    /* Erro */
-    .card-erro {
-      padding: 1.25rem;
-      font-size: .78rem; color: var(--dn);
-      display: flex; align-items: center; gap: .4rem;
-    }
-
-    /* Card vazio / aguardando */
-    .card-empty {
-      padding: 1.5rem 1.25rem;
-      text-align: center;
-      font-size: .8rem; color: var(--muted);
-    }
-
-    /* ── Toast ── */
-    #toast {
-      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999;
-      padding: .55rem 1.2rem; border-radius: 8px;
-      font-size: .8rem; font-weight: 500;
-      transform: translateY(60px); opacity: 0;
-      transition: all .3s ease;
-      pointer-events: none;
-    }
-    #toast.ok  { background: var(--green-dim); color: var(--cream); border: 1px solid var(--green); }
-    #toast.err { background: rgba(217,79,61,.2); color: var(--dn); border: 1px solid var(--dn); }
-    #toast.show { transform: translateY(0); opacity: 1; }
-
-    /* ── Rodapé ── */
-    footer {
-      position: relative; z-index: 1;
-      padding: 1.5rem 2rem;
-      border-top: 1px solid var(--border);
-      font-size: .7rem; color: var(--muted);
-      display: flex; flex-wrap: wrap; gap: .75rem;
-      align-items: center; justify-content: space-between;
-    }
-    footer a { color: var(--amber-light); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-
-    /* ── Responsivo ── */
-    @media (max-width: 640px) {
-      header, main, .hero, .info-banner { padding-left: 1rem; padding-right: 1rem; }
-      .hero { padding-top: 2rem; }
-      .info-banner { margin-left: 1rem; margin-right: 1rem; }
-      .hero-meta { text-align: left; }
-    }
+    html{font-size:16px;}
+    body{background:var(--bg);color:var(--cream);font-family:'Inter',sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased;}
+    header{background:rgba(15,26,10,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem;position:sticky;top:0;z-index:100;}
+    .logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;}
+    .logo-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--green-dim),var(--green-lit));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+    .logo-text{font-size:1.1rem;font-weight:700;color:var(--cream);letter-spacing:-0.02em;}
+    .logo-text span{color:var(--green-lit);}
+    .header-meta{display:flex;align-items:center;gap:0.75rem;font-size:0.72rem;color:var(--muted);}
+    .dot-live{width:6px;height:6px;border-radius:50%;background:var(--up);flex-shrink:0;animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    #clock{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);display:none;}
+    @media(min-width:480px){#clock{display:block;}}
+    .filter-section{padding:0.75rem 1.25rem 0;display:flex;gap:0.4rem;flex-wrap:wrap;}
+    .f-btn{padding:0.3rem 0.85rem;border-radius:99px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:500;cursor:pointer;transition:all 0.18s;white-space:nowrap;}
+    .f-btn:hover{border-color:var(--green);color:var(--green-lit);}
+    .f-btn.active{background:var(--green-dim);border-color:var(--green);color:#fff;font-weight:600;}
+    .hero-strip{padding:1rem 1.25rem 0.5rem;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:0.25rem;}
+    .hero-strip h1{font-weight:600;color:var(--cream);opacity:0.6;letter-spacing:0.04em;text-transform:uppercase;font-size:0.7rem;}
+    .hero-strip .updated{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--amber);}
+    main{padding:0.75rem 1.25rem 3rem;}
+    .grid{display:grid;gap:0.75rem;grid-template-columns:1fr;}
+    @media(min-width:480px){.grid{grid-template-columns:repeat(2,1fr);}}
+    @media(min-width:768px){.grid{grid-template-columns:repeat(3,1fr);}}
+    @media(min-width:1100px){.grid{grid-template-columns:repeat(4,1fr);}}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s;animation:fadeUp 0.4s ease both;}
+    .card:hover{transform:translateY(-3px);border-color:rgba(140,200,80,0.28);box-shadow:0 8px 24px rgba(0,0,0,0.4);}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .card-head{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 0.875rem 0.5rem;border-bottom:1px solid var(--border);}
+    .card-id{display:flex;align-items:center;gap:0.5rem;}
+    .card-emoji{font-size:1.15rem;width:30px;height:30px;display:flex;align-items:center;justify-content:center;background:var(--surface2);border-radius:7px;flex-shrink:0;}
+    .card-name{font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);}
+    .cat-badge{font-size:0.58rem;font-weight:600;padding:0.12rem 0.4rem;border-radius:4px;text-transform:uppercase;letter-spacing:0.06em;white-space:nowrap;}
+    .cat-graos{background:rgba(109,179,63,.15);color:var(--green-lit);border:1px solid rgba(109,179,63,.3);}
+    .cat-proteina{background:rgba(232,160,32,.15);color:var(--amber);border:1px solid rgba(232,160,32,.3);}
+    .card-body{padding:0.6rem 0.875rem 0.75rem;}
+    .indicador{padding:0.45rem 0;border-bottom:1px solid var(--border);}
+    .indicador:last-child{border-bottom:none;padding-bottom:0;}
+    .indicador:first-child{padding-top:0;}
+    .ind-label{font-size:0.62rem;color:var(--muted);margin-bottom:0.25rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .ind-row{display:flex;align-items:baseline;justify-content:space-between;gap:0.5rem;}
+    .ind-valor{font-family:'JetBrains Mono',monospace;font-size:1.25rem;font-weight:600;color:var(--cream);line-height:1;white-space:nowrap;}
+    @media(max-width:479px){.ind-valor{font-size:1.05rem;}}
+    .ind-unit{font-size:0.58rem;color:var(--muted);margin-left:0.15rem;}
+    .ind-chg{font-family:'JetBrains Mono',monospace;font-size:0.68rem;font-weight:600;padding:0.15rem 0.4rem;border-radius:4px;white-space:nowrap;flex-shrink:0;}
+    .up{background:rgba(78,201,106,.12);color:var(--up);}
+    .dn{background:rgba(224,80,80,.12);color:var(--dn);}
+    .neu{background:rgba(255,255,255,.05);color:var(--muted);}
+    .ind-date{font-size:0.58rem;color:var(--muted);opacity:0.6;margin-top:0.2rem;}
+    .card-empty{padding:1.25rem 0.875rem;text-align:center;font-size:0.75rem;color:var(--muted);}
+    #toast{position:fixed;bottom:1rem;right:1rem;z-index:999;padding:0.45rem 1rem;border-radius:8px;font-size:0.75rem;font-weight:500;pointer-events:none;transform:translateY(50px);opacity:0;transition:all 0.25s;}
+    #toast.ok{background:var(--green-dim);color:#fff;border:1px solid var(--green);}
+    #toast.err{background:rgba(224,80,80,.2);color:var(--dn);border:1px solid var(--dn);}
+    #toast.show{transform:translateY(0);opacity:1;}
+    footer{padding:1.25rem;border-top:1px solid var(--border);font-size:0.65rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;justify-content:space-between;}
+    footer a{color:var(--amber);text-decoration:none;}
+    .btn-reload{display:flex;align-items:center;gap:0.35rem;padding:0.28rem 0.7rem;border-radius:6px;background:transparent;border:1px solid var(--border);color:var(--muted);font-size:0.68rem;cursor:pointer;transition:all 0.18s;}
+    .btn-reload:hover{border-color:var(--green);color:var(--green-lit);}
+    .btn-reload svg{width:11px;height:11px;flex-shrink:0;}
+    .btn-reload.loading svg{animation:spin .6s linear infinite;}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .empty-state{grid-column:1/-1;text-align:center;padding:3rem 1rem;color:var(--muted);font-size:0.85rem;}
   </style>
 </head>
 <body>
-
-<!-- ── Header ─────────────────────────────────── -->
 <header>
-  <div class="logo">
-    <div class="logo-icon">🌾</div>
+  <a class="logo" href="#">
+    <div class="logo-icon">&#127807;</div>
     <span class="logo-text">Agro<span>Quote</span></span>
-  </div>
-  <div class="header-right">
-    <div class="status-pill">
-      <div class="status-dot"></div>
-      <span id="status-text">Carregando…</span>
-    </div>
-    <div id="clock">--:--:--</div>
-    <button class="btn-update" id="btn-update" onclick="recarregar()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 .49-3"/>
-      </svg>
-      Recarregar
+  </a>
+  <div class="header-meta">
+    <div class="dot-live"></div>
+    <span id="status-text">Carregando&hellip;</span>
+    <div id="clock"></div>
+    <button class="btn-reload" id="btn-reload" onclick="carregar()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 .49-3"/></svg>
+      Atualizar
     </button>
   </div>
 </header>
-
-<!-- ── Hero ────────────────────────────────────── -->
-<div class="hero">
-  <div class="hero-left">
-    <h1>Cotações do <em>Campo</em><br>— hoje</h1>
-    <p>Dados coletados do Notícias Agrícolas · Câmbio via Banco Central do Brasil</p>
-  </div>
-  <div class="hero-meta">
-    Atualizado pelo GitHub Actions<br>
-    <strong id="gerado-em">—</strong>
-  </div>
+<div class="filter-section" id="filter-bar"></div>
+<div class="hero-strip">
+  <h1>Cota&ccedil;&otilde;es Agropecu&aacute;rias &mdash; Tempo Real</h1>
+  <span class="updated" id="gerado-em"></span>
 </div>
-
-<!-- ── Banner informativo ─────────────────────── -->
-<div class="info-banner">
-  ⚡ Dados atualizados automaticamente 3x ao dia (8h, 12h e 17h) pelo GitHub Actions nos dias úteis.
-  Os valores abaixo foram coletados do site Notícias Agrícolas (CEPEA/ESALQ).
-</div>
-
-<!-- ── Main ────────────────────────────────────── -->
-<main>
-  <div class="filter-bar" id="filter-bar"></div>
-  <div class="grid" id="grid"></div>
-</main>
-
+<main><div class="grid" id="grid"></div></main>
 <footer>
-  <span>
-    Fonte: <a href="https://www.noticiasagricolas.com.br/cotacoes/" target="_blank">Notícias Agrícolas</a>
-    · <a href="https://olinda.bcb.gov.br" target="_blank">Banco Central do Brasil</a>
-    · Scraping via GitHub Actions
-  </span>
-  <span>Informativo. Não é recomendação de investimento.</span>
+  <span>Fonte: <a href="https://www.noticiasagricolas.com.br/cotacoes/" target="_blank">Not&iacute;cias Agr&iacute;colas / CEPEA</a> &middot; <a href="https://olinda.bcb.gov.br" target="_blank">BCB</a></span>
+  <span>Atualizado automaticamente 3&times; ao dia &mdash; seg a sex</span>
 </footer>
-
 <div id="toast"></div>
-
 <script>
-/* ══════════════════════════════════════════════════════
-   AgroQuote — index.html
-   Lê ./cotacoes.json (gerado pelo scraper.py via GitHub Actions)
-   Sem dependências externas, sem CORS, sem API key.
-══════════════════════════════════════════════════════ */
-
-// Ordem e metadados de exibição (complementa o JSON)
-const META = {
-  soja:    { cat: 'graos',     emoji: '🫘', nome: 'Soja'          },
-  milho:   { cat: 'graos',     emoji: '🌽', nome: 'Milho'         },
-  trigo:   { cat: 'graos',     emoji: '🌾', nome: 'Trigo'         },
-  arroz:   { cat: 'graos',     emoji: '🍚', nome: 'Arroz'         },
-  algodao: { cat: 'graos',     emoji: '☁️',  nome: 'Algodão'       },
-  sorgo:   { cat: 'graos',     emoji: '🌿', nome: 'Sorgo'         },
-  boi:     { cat: 'proteina',  emoji: '🐂', nome: 'Boi Gordo'     },
-  frango:  { cat: 'proteina',  emoji: '🐔', nome: 'Frango'        },
-  suinos:  { cat: 'proteina',  emoji: '🐷', nome: 'Suínos'        },
-  leite:   { cat: 'proteina',  emoji: '🥛', nome: 'Leite'         },
-  cafe:    { cat: 'tropicais', emoji: '☕', nome: 'Café'          },
-  acucar:  { cat: 'tropicais', emoji: '🍬', nome: 'Sucroenergético'},
-  laranja: { cat: 'tropicais', emoji: '🍊', nome: 'Laranja'       },
-  dolar:   { cat: 'cambio',    emoji: '💵', nome: 'Dólar USD/BRL' },
-};
-
-const FILTROS = [
-  { id: 'todos',     label: 'Todos'           },
-  { id: 'graos',     label: 'Grãos'           },
-  { id: 'proteina',  label: 'Proteína Animal' },
-  { id: 'tropicais', label: 'Tropicais'       },
-  { id: 'cambio',    label: 'Câmbio'          },
+const PRODUTOS=[
+  {id:'soja',nome:'Soja',emoji:'&#129760;',cat:'graos'},
+  {id:'milho',nome:'Milho',emoji:'&#127805;',cat:'graos'},
+  {id:'algodao',nome:'Algod&atilde;o',emoji:'&#127807;',cat:'graos'},
+  {id:'trigo',nome:'Trigo',emoji:'&#127806;',cat:'graos'},
+  {id:'arroz',nome:'Arroz',emoji:'&#127834;',cat:'graos'},
+  {id:'sorgo',nome:'Sorgo',emoji:'&#127793;',cat:'graos'},
+  {id:'boi',nome:'Boi Gordo',emoji:'&#128002;',cat:'proteina'},
+  {id:'frango',nome:'Frango',emoji:'&#128020;',cat:'proteina'},
+  {id:'suinos',nome:'Su&iacute;nos',emoji:'&#128055;',cat:'proteina'},
+  {id:'leite',nome:'Leite',emoji:'&#129371;',cat:'proteina'},
 ];
-
-let dadosJson = null;
-let filtroAtivo = 'todos';
-
-/* ── Relógio ────────────────────────────────── */
-(function clock() {
-  document.getElementById('clock').textContent =
-    new Date().toLocaleTimeString('pt-BR');
-  setTimeout(clock, 1000);
-})();
-
-/* ── Utilitários ─────────────────────────────── */
-function parseVariacao(vStr) {
-  if (!vStr) return { dir: 'neu', txt: '—' };
-  const limpo = vStr.replace('%', '').replace(',', '.').trim();
-  const n = parseFloat(limpo);
-  if (isNaN(n)) return { dir: 'neu', txt: vStr };
-  const dir = n > 0 ? 'up' : n < 0 ? 'dn' : 'neu';
-  const arrow = n > 0 ? '▲' : n < 0 ? '▼' : '—';
-  return { dir, txt: `${arrow} ${Math.abs(n).toFixed(2).replace('.', ',')}%` };
-}
-
-function showToast(msg, tipo = 'ok') {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = `${tipo} show`;
-  setTimeout(() => t.className = tipo, 3000);
-}
-
-/* ── Constrói filtros ─────────────────────────── */
-function buildFiltros() {
-  const bar = document.getElementById('filter-bar');
-  bar.innerHTML = '';
-  FILTROS.forEach(f => {
-    const btn = document.createElement('button');
-    btn.className = 'f-btn' + (f.id === 'todos' ? ' active' : '');
-    btn.textContent = f.label;
-    btn.onclick = () => {
-      document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      filtroAtivo = f.id;
-      renderGrid();
-    };
-    bar.appendChild(btn);
-  });
-}
-
-/* ── Renderiza um card ───────────────────────── */
-function makeCard(id, dado, idx) {
-  const meta = META[id] || { emoji: '📦', nome: id, cat: 'outros' };
-  const delay = (idx * 0.05).toFixed(2);
-
-  const card = document.createElement('div');
-  card.className = 'card';
-  card.dataset.cat = dado?.cat || meta.cat;
-  card.style.animationDelay = delay + 's';
-
-  const isBCB = dado?.fonte === 'Banco Central do Brasil';
-  const srcClass = isBCB ? 'src-bcb' : 'src-na';
-  const srcLabel = isBCB ? 'BCB' : 'NA/CEPEA';
-
-  // Header do card
-  const header = `
-    <div class="card-header">
-      <div class="card-title-wrap">
-        <div class="card-emoji">${dado?.emoji || meta.emoji}</div>
-        <div class="card-name">${dado?.nome || meta.nome}</div>
-      </div>
-      <span class="card-source ${srcClass}">${srcLabel}</span>
-    </div>
-  `;
-
-  // Body do card
-  let body = '';
-
-  if (!dado || Object.keys(dado).length === 0) {
-    // JSON ainda vazio (primeiro deploy antes do Actions rodar)
-    body = `<div class="card-empty">⏳ Aguardando primeiro scraping pelo GitHub Actions…</div>`;
-
-  } else if (dado.erro && (!dado.indicadores || dado.indicadores.length === 0)) {
-    body = `<div class="card-erro">⚠ ${dado.erro}</div>`;
-
-  } else if (!dado.indicadores || dado.indicadores.length === 0) {
-    body = `<div class="card-empty">Sem dados disponíveis</div>`;
-
-  } else {
-    // Indicadores normais
-    const indsHtml = dado.indicadores.map(ind => {
-      const vari = parseVariacao(ind.variacao);
-      return `
-        <div class="indicador">
-          <div class="ind-label" title="${ind.indicador}">${ind.indicador}</div>
-          <div class="ind-main">
-            <div>
-              <span class="ind-valor">${ind.valor || '—'}</span>
-              <span class="ind-unidade">${ind.unidade || 'R$'}</span>
-            </div>
-            <span class="ind-chg ${vari.dir}">${vari.txt}</span>
-          </div>
-          <div class="ind-data">📅 ${ind.data || '—'}</div>
-        </div>
-      `;
-    }).join('');
-    body = `<div class="card-body">${indsHtml}</div>`;
-  }
-
-  card.innerHTML = header + body;
-  return card;
-}
-
-/* ── Renderiza grid ──────────────────────────── */
-function renderGrid() {
-  const grid = document.getElementById('grid');
-  grid.innerHTML = '';
-
-  const dados = dadosJson?.dados || {};
-
-  // Define a ordem de exibição baseada em META
-  const ids = Object.keys(META);
-
-  ids.forEach((id, idx) => {
-    const dado = dados[id];
-    const cat = dado?.cat || META[id]?.cat || 'outros';
-
-    if (filtroAtivo !== 'todos' && cat !== filtroAtivo) return;
-
-    // Se o dado não existe ainda, mostra card de placeholder
-    const dadoFinal = dado || {
-      nome: META[id]?.nome,
-      emoji: META[id]?.emoji,
-      cat: META[id]?.cat,
-      fonte: 'Notícias Agrícolas',
-      indicadores: [],
-      erro: null,
-    };
-
-    grid.appendChild(makeCard(id, dadoFinal, idx));
-  });
-
-  // Se grid vazio (filtro sem resultados)
-  if (grid.children.length === 0) {
-    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;color:var(--muted);padding:3rem;">
-      Nenhum produto nesta categoria ainda.
-    </div>`;
-  }
-}
-
-/* ── Carrega o JSON ──────────────────────────── */
-async function carregarJson() {
-  const btn = document.getElementById('btn-update');
-  btn.classList.add('loading');
-  document.getElementById('status-text').textContent = 'Carregando…';
-
-  try {
-    // Adiciona cache-buster para garantir versão mais recente
-    const r = await fetch('./cotacoes.json?t=' + Date.now());
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    dadosJson = await r.json();
-
-    const geradoEm = dadosJson.gerado_em || '—';
-    document.getElementById('gerado-em').textContent = geradoEm;
-    document.getElementById('status-text').textContent = 'Atualizado ' + geradoEm;
-
-    renderGrid();
-    showToast('✓ Cotações carregadas', 'ok');
-
-  } catch (err) {
-    console.error(err);
-    document.getElementById('status-text').textContent = 'Erro ao carregar';
-    showToast('⚠ Erro ao carregar cotacoes.json', 'err');
-
-    // Renderiza cards de placeholder mesmo sem dados
-    dadosJson = { dados: {} };
-    renderGrid();
-  } finally {
-    btn.classList.remove('loading');
-  }
-}
-
-function recarregar() {
-  carregarJson();
-}
-
-/* ── Init ─────────────────────────────────────── */
-buildFiltros();
-carregarJson();
+const FILTROS=[{id:'todos',label:'Todos'},{id:'graos',label:'&#127806; Gr&atilde;os'},{id:'proteina',label:'&#128004; Pecu&aacute;ria'}];
+let dados=null,filtroAtivo='todos';
+(function tick(){const el=document.getElementById('clock');if(el)el.textContent=new Date().toLocaleTimeString('pt-BR');setTimeout(tick,1000);})();
+function toast(msg,tipo='ok'){const el=document.getElementById('toast');el.textContent=msg;el.className=tipo+' show';setTimeout(()=>el.className=tipo,2800);}
+function parseVar(v){if(!v)return{cls:'neu',txt:'&mdash;'};const n=parseFloat(String(v).replace('%','').replace(',','.'));if(isNaN(n))return{cls:'neu',txt:v};const cls=n>0?'up':n<0?'dn':'neu';const s=n>0?'&#9650;':n<0?'&#9660;':'&mdash;';return{cls,txt:s+' '+Math.abs(n).toFixed(2).replace('.',',')+' %'};}
+function buildFiltros(){const bar=document.getElementById('filter-bar');FILTROS.forEach(f=>{const btn=document.createElement('button');btn.className='f-btn'+(f.id===filtroAtivo?' active':'');btn.innerHTML=f.label;btn.onclick=()=>{document.querySelectorAll('.f-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');filtroAtivo=f.id;renderGrid();};bar.appendChild(btn);});}
+function makeCard(meta,dado,idx){const card=document.createElement('div');card.className='card';card.style.animationDelay=(idx*0.04).toFixed(2)+'s';const catCls=meta.cat==='graos'?'cat-graos':'cat-proteina';const catLbl=meta.cat==='graos'?'Gr&atilde;os':'Pecu&aacute;ria';const head=document.createElement('div');head.className='card-head';head.innerHTML='<div class="card-id"><div class="card-emoji">'+meta.emoji+'</div><div class="card-name">'+meta.nome+'</div></div><span class="cat-badge '+catCls+'">'+catLbl+'</span>';card.appendChild(head);const body=document.createElement('div');body.className='card-body';const inds=dado?.indicadores;if(!inds||!inds.length){body.innerHTML='<div class="card-empty">&#9203; Aguardando dados&hellip;</div>';}else{inds.slice(0,3).forEach(ind=>{const v=parseVar(ind.variacao);const d=document.createElement('div');d.className='indicador';d.innerHTML='<div class="ind-label" title="'+ind.indicador+'">'+ind.indicador+'</div><div class="ind-row"><div><span class="ind-valor">'+(ind.valor||'&mdash;')+'</span><span class="ind-unit">'+(ind.unidade||'')+'</span></div><span class="ind-chg '+v.cls+'">'+v.txt+'</span></div><div class="ind-date">'+(ind.data||'')+'</div>';body.appendChild(d);});}card.appendChild(body);return card;}
+function renderGrid(){const grid=document.getElementById('grid');grid.innerHTML='';const json=dados?.dados||{};let idx=0;PRODUTOS.forEach(meta=>{if(filtroAtivo!=='todos'&&meta.cat!==filtroAtivo)return;const dado=json[meta.id];grid.appendChild(makeCard(meta,dado,idx++));});if(!grid.children.length)grid.innerHTML='<div class="empty-state">Nenhum produto encontrado.</div>';}
+async function carregar(){const btn=document.getElementById('btn-reload');const status=document.getElementById('status-text');btn.classList.add('loading');status.textContent='Atualizando&hellip;';try{const r=await fetch('./cotacoes.json?t='+Date.now());if(!r.ok)throw new Error('HTTP '+r.status);dados=await r.json();const ge=dados.gerado_em||'&mdash;';document.getElementById('gerado-em').textContent=ge;status.textContent=ge;renderGrid();toast('&#10003; Dados atualizados');}catch(e){status.textContent='Erro';toast('&#9888; Falha ao carregar','err');dados={dados:{}};renderGrid();}finally{btn.classList.remove('loading');}}
+buildFiltros();carregar();
 </script>
 </body>
 </html>
