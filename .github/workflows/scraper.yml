@@ -7,14 +7,15 @@ on:
     - cron: '0 20 * * 1-5'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Python 3.11
         uses: actions/setup-python@v5
