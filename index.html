@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroQuote — Cotações do Campo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Variáveis ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #0e1209;
+      --bg2:          #151a0f;
+      --surface:      rgba(255,255,255,0.038);
+      --border:       rgba(180,210,120,0.10);
+      --border-hover: rgba(180,210,120,0.30);
+      --green:        #7ab648;
+      --green-dim:    #4a7a20;
+      --amber:        #d4900a;
+      --amber-light:  #f0b030;
+      --cream:        #f0ead8;
+      --muted:        #8a9070;
+      --red:          #d94f3d;
+      --up:           #5cbf6a;
+      --dn:           #d94f3d;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Outfit', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Grain texture */
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    /* ── Header ── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(14,18,9,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap;
+      min-height: 64px;
+    }
+
+    .logo {
+      display: flex; align-items: center; gap: .7rem;
+    }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--green-dim), var(--green));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: -.02em;
+    }
+    .logo-text span { color: var(--green); }
+
+    .header-right {
+      display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .status-pill {
+      display: flex; align-items: center; gap: .4rem;
+      padding: .3rem .8rem; border-radius: 99px;
+      border: 1px solid var(--border);
+      font-size: .72rem; color: var(--muted);
+    }
+    .status-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--up);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; } 50% { opacity: .3; }
+    }
+    #clock {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem; color: var(--muted);
+    }
+    .btn-update {
+      display: flex; align-items: center; gap: .4rem;
+      padding: .35rem .9rem; border-radius: 6px;
+      background: var(--green-dim); border: 1px solid var(--green);
+      color: var(--cream); font-family: 'Outfit', sans-serif;
+      font-size: .78rem; font-weight: 500; cursor: pointer;
+      transition: all .2s;
+    }
+    .btn-update:hover { background: var(--green); color: var(--bg); }
+    .btn-update svg { width: 12px; height: 12px; }
+    .btn-update.loading svg { animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; z-index: 1;
+      padding: 3rem 2rem 1.5rem;
+      display: flex; align-items: flex-end; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .hero-left h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.1;
+      font-weight: 700;
+    }
+    .hero-left h1 em {
+      font-style: italic;
+      color: var(--amber-light);
+    }
+    .hero-left p {
+      margin-top: .6rem;
+      font-size: .85rem; font-weight: 300;
+      color: var(--muted);
+    }
+    .hero-meta {
+      text-align: right;
+      font-size: .72rem; color: var(--muted);
+      line-height: 1.7;
+    }
+    .hero-meta strong {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .8rem; color: var(--amber-light);
+    }
+
+    /* ── Banner de aviso ── */
+    .info-banner {
+      position: relative; z-index: 1;
+      margin: 0 2rem;
+      padding: .6rem 1rem;
+      background: rgba(212,144,10,.08);
+      border: 1px solid rgba(212,144,10,.25);
+      border-radius: 6px;
+      font-size: .74rem; color: var(--amber-light);
+      display: flex; align-items: center; gap: .5rem;
+    }
+
+    /* ── Filtros ── */
+    main { position: relative; z-index: 1; padding: 1.5rem 2rem 4rem; }
+
+    .filter-bar {
+      display: flex; gap: .45rem; flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .f-btn {
+      padding: .35rem 1rem; border-radius: 99px;
+      border: 1px solid var(--border);
+      background: transparent; color: var(--muted);
+      font-family: 'Outfit', sans-serif; font-size: .77rem;
+      cursor: pointer; transition: all .2s;
+    }
+    .f-btn:hover { border-color: var(--green); color: var(--green); }
+    .f-btn.active {
+      background: var(--green); border-color: var(--green);
+      color: var(--bg); font-weight: 600;
+    }
+
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.1rem;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+      animation: fadeUp .5s ease both;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: 0 12px 32px rgba(0,0,0,.5), 0 0 0 1px rgba(122,182,72,.1);
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.25rem .75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-title-wrap { display: flex; align-items: center; gap: .6rem; }
+    .card-emoji {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(255,255,255,.06);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .card-name {
+      font-size: .72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .08em;
+      color: var(--muted);
+    }
+    .card-source {
+      font-size: .62rem; font-weight: 600;
+      padding: .18rem .5rem; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: .06em;
+    }
+    .src-na  { background: rgba(122,182,72,.15); color: var(--green); border: 1px solid rgba(122,182,72,.3); }
+    .src-bcb { background: rgba(212,144,10,.15); color: var(--amber-light); border: 1px solid rgba(212,144,10,.3); }
+
+    /* Indicadores dentro do card */
+    .card-body { padding: .85rem 1.25rem 1rem; }
+
+    .indicador {
+      padding: .6rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .indicador:last-child { border-bottom: none; padding-bottom: 0; }
+    .indicador:first-child { padding-top: 0; }
+
+    .ind-label {
+      font-size: .68rem; color: var(--muted);
+      margin-bottom: .3rem;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .ind-main {
+      display: flex; align-items: baseline;
+      justify-content: space-between; gap: .5rem;
+      flex-wrap: wrap;
+    }
+    .ind-valor {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.45rem; font-weight: 500;
+      color: var(--cream); line-height: 1;
+    }
+    .ind-unidade {
+      font-size: .62rem; color: var(--muted);
+      margin-left: .2rem;
+    }
+    .ind-chg {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .75rem; font-weight: 500;
+      padding: .18rem .45rem; border-radius: 4px;
+    }
+    .ind-chg.up  { background: rgba(92,191,106,.12); color: var(--up); }
+    .ind-chg.dn  { background: rgba(217,79,61,.12);  color: var(--dn); }
+    .ind-chg.neu { background: rgba(255,255,255,.05); color: var(--muted); }
+
+    .ind-data {
+      margin-top: .25rem;
+      font-size: .62rem; color: var(--muted); opacity: .7;
+    }
+
+    /* Skeleton */
+    .skel {
+      background: linear-gradient(90deg,
+        rgba(255,255,255,.04) 25%,
+        rgba(255,255,255,.08) 50%,
+        rgba(255,255,255,.04) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: 5px;
+    }
+    .skel-lg { height: 1.6rem; width: 60%; margin-bottom: .4rem; }
+    .skel-sm { height: .65rem; width: 35%; }
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Erro */
+    .card-erro {
+      padding: 1.25rem;
+      font-size: .78rem; color: var(--dn);
+      display: flex; align-items: center; gap: .4rem;
+    }
+
+    /* Card vazio / aguardando */
+    .card-empty {
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      font-size: .8rem; color: var(--muted);
+    }
+
+    /* ── Toast ── */
+    #toast {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999;
+      padding: .55rem 1.2rem; border-radius: 8px;
+      font-size: .8rem; font-weight: 500;
+      transform: translateY(60px); opacity: 0;
+      transition: all .3s ease;
+      pointer-events: none;
+    }
+    #toast.ok  { background: var(--green-dim); color: var(--cream); border: 1px solid var(--green); }
+    #toast.err { background: rgba(217,79,61,.2); color: var(--dn); border: 1px solid var(--dn); }
+    #toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ── Rodapé ── */
+    footer {
+      position: relative; z-index: 1;
+      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+      font-size: .7rem; color: var(--muted);
+      display: flex; flex-wrap: wrap; gap: .75rem;
+      align-items: center; justify-content: space-between;
+    }
+    footer a { color: var(--amber-light); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── Responsivo ── */
+    @media (max-width: 640px) {
+      header, main, .hero, .info-banner { padding-left: 1rem; padding-right: 1rem; }
+      .hero { padding-top: 2rem; }
+      .info-banner { margin-left: 1rem; margin-right: 1rem; }
+      .hero-meta { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ─────────────────────────────────── -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">🌾</div>
+    <span class="logo-text">Agro<span>Quote</span></span>
+  </div>
+  <div class="header-right">
+    <div class="status-pill">
+      <div class="status-dot"></div>
+      <span id="status-text">Carregando…</span>
+    </div>
+    <div id="clock">--:--:--</div>
+    <button class="btn-update" id="btn-update" onclick="recarregar()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 .49-3"/>
+      </svg>
+      Recarregar
+    </button>
+  </div>
+</header>
+
+<!-- ── Hero ────────────────────────────────────── -->
+<div class="hero">
+  <div class="hero-left">
+    <h1>Cotações do <em>Campo</em><br>— hoje</h1>
+    <p>Dados coletados do Notícias Agrícolas · Câmbio via Banco Central do Brasil</p>
+  </div>
+  <div class="hero-meta">
+    Atualizado pelo GitHub Actions<br>
+    <strong id="gerado-em">—</strong>
+  </div>
+</div>
+
+<!-- ── Banner informativo ─────────────────────── -->
+<div class="info-banner">
+  ⚡ Dados atualizados automaticamente 3x ao dia (8h, 12h e 17h) pelo GitHub Actions nos dias úteis.
+  Os valores abaixo foram coletados do site Notícias Agrícolas (CEPEA/ESALQ).
+</div>
+
+<!-- ── Main ────────────────────────────────────── -->
+<main>
+  <div class="filter-bar" id="filter-bar"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer>
+  <span>
+    Fonte: <a href="https://www.noticiasagricolas.com.br/cotacoes/" target="_blank">Notícias Agrícolas</a>
+    · <a href="https://olinda.bcb.gov.br" target="_blank">Banco Central do Brasil</a>
+    · Scraping via GitHub Actions
+  </span>
+  <span>Informativo. Não é recomendação de investimento.</span>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   AgroQuote — index.html
+   Lê ./cotacoes.json (gerado pelo scraper.py via GitHub Actions)
+   Sem dependências externas, sem CORS, sem API key.
+══════════════════════════════════════════════════════ */
+
+// Ordem e metadados de exibição (complementa o JSON)
+const META = {
+  soja:    { cat: 'graos',     emoji: '🫘', nome: 'Soja'          },
+  milho:   { cat: 'graos',     emoji: '🌽', nome: 'Milho'         },
+  trigo:   { cat: 'graos',     emoji: '🌾', nome: 'Trigo'         },
+  arroz:   { cat: 'graos',     emoji: '🍚', nome: 'Arroz'         },
+  algodao: { cat: 'graos',     emoji: '☁️',  nome: 'Algodão'       },
+  sorgo:   { cat: 'graos',     emoji: '🌿', nome: 'Sorgo'         },
+  boi:     { cat: 'proteina',  emoji: '🐂', nome: 'Boi Gordo'     },
+  frango:  { cat: 'proteina',  emoji: '🐔', nome: 'Frango'        },
+  suinos:  { cat: 'proteina',  emoji: '🐷', nome: 'Suínos'        },
+  leite:   { cat: 'proteina',  emoji: '🥛', nome: 'Leite'         },
+  cafe:    { cat: 'tropicais', emoji: '☕', nome: 'Café'          },
+  acucar:  { cat: 'tropicais', emoji: '🍬', nome: 'Sucroenergético'},
+  laranja: { cat: 'tropicais', emoji: '🍊', nome: 'Laranja'       },
+  dolar:   { cat: 'cambio',    emoji: '💵', nome: 'Dólar USD/BRL' },
+};
+
+const FILTROS = [
+  { id: 'todos',     label: 'Todos'           },
+  { id: 'graos',     label: 'Grãos'           },
+  { id: 'proteina',  label: 'Proteína Animal' },
+  { id: 'tropicais', label: 'Tropicais'       },
+  { id: 'cambio',    label: 'Câmbio'          },
+];
+
+let dadosJson = null;
+let filtroAtivo = 'todos';
+
+/* ── Relógio ────────────────────────────────── */
+(function clock() {
+  document.getElementById('clock').textContent =
+    new Date().toLocaleTimeString('pt-BR');
+  setTimeout(clock, 1000);
+})();
+
+/* ── Utilitários ─────────────────────────────── */
+function parseVariacao(vStr) {
+  if (!vStr) return { dir: 'neu', txt: '—' };
+  const limpo = vStr.replace('%', '').replace(',', '.').trim();
+  const n = parseFloat(limpo);
+  if (isNaN(n)) return { dir: 'neu', txt: vStr };
+  const dir = n > 0 ? 'up' : n < 0 ? 'dn' : 'neu';
+  const arrow = n > 0 ? '▲' : n < 0 ? '▼' : '—';
+  return { dir, txt: `${arrow} ${Math.abs(n).toFixed(2).replace('.', ',')}%` };
+}
+
+function showToast(msg, tipo = 'ok') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = `${tipo} show`;
+  setTimeout(() => t.className = tipo, 3000);
+}
+
+/* ── Constrói filtros ─────────────────────────── */
+function buildFiltros() {
+  const bar = document.getElementById('filter-bar');
+  bar.innerHTML = '';
+  FILTROS.forEach(f => {
+    const btn = document.createElement('button');
+    btn.className = 'f-btn' + (f.id === 'todos' ? ' active' : '');
+    btn.textContent = f.label;
+    btn.onclick = () => {
+      document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filtroAtivo = f.id;
+      renderGrid();
+    };
+    bar.appendChild(btn);
+  });
+}
+
+/* ── Renderiza um card ───────────────────────── */
+function makeCard(id, dado, idx) {
+  const meta = META[id] || { emoji: '📦', nome: id, cat: 'outros' };
+  const delay = (idx * 0.05).toFixed(2);
+
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.dataset.cat = dado?.cat || meta.cat;
+  card.style.animationDelay = delay + 's';
+
+  const isBCB = dado?.fonte === 'Banco Central do Brasil';
+  const srcClass = isBCB ? 'src-bcb' : 'src-na';
+  const srcLabel = isBCB ? 'BCB' : 'NA/CEPEA';
+
+  // Header do card
+  const header = `
+    <div class="card-header">
+      <div class="card-title-wrap">
+        <div class="card-emoji">${dado?.emoji || meta.emoji}</div>
+        <div class="card-name">${dado?.nome || meta.nome}</div>
+      </div>
+      <span class="card-source ${srcClass}">${srcLabel}</span>
+    </div>
+  `;
+
+  // Body do card
+  let body = '';
+
+  if (!dado || Object.keys(dado).length === 0) {
+    // JSON ainda vazio (primeiro deploy antes do Actions rodar)
+    body = `<div class="card-empty">⏳ Aguardando primeiro scraping pelo GitHub Actions…</div>`;
+
+  } else if (dado.erro && (!dado.indicadores || dado.indicadores.length === 0)) {
+    body = `<div class="card-erro">⚠ ${dado.erro}</div>`;
+
+  } else if (!dado.indicadores || dado.indicadores.length === 0) {
+    body = `<div class="card-empty">Sem dados disponíveis</div>`;
+
+  } else {
+    // Indicadores normais
+    const indsHtml = dado.indicadores.map(ind => {
+      const vari = parseVariacao(ind.variacao);
+      return `
+        <div class="indicador">
+          <div class="ind-label" title="${ind.indicador}">${ind.indicador}</div>
+          <div class="ind-main">
+            <div>
+              <span class="ind-valor">${ind.valor || '—'}</span>
+              <span class="ind-unidade">${ind.unidade || 'R$'}</span>
+            </div>
+            <span class="ind-chg ${vari.dir}">${vari.txt}</span>
+          </div>
+          <div class="ind-data">📅 ${ind.data || '—'}</div>
+        </div>
+      `;
+    }).join('');
+    body = `<div class="card-body">${indsHtml}</div>`;
+  }
+
+  card.innerHTML = header + body;
+  return card;
+}
+
+/* ── Renderiza grid ──────────────────────────── */
+function renderGrid() {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+
+  const dados = dadosJson?.dados || {};
+
+  // Define a ordem de exibição baseada em META
+  const ids = Object.keys(META);
+
+  ids.forEach((id, idx) => {
+    const dado = dados[id];
+    const cat = dado?.cat || META[id]?.cat || 'outros';
+
+    if (filtroAtivo !== 'todos' && cat !== filtroAtivo) return;
+
+    // Se o dado não existe ainda, mostra card de placeholder
+    const dadoFinal = dado || {
+      nome: META[id]?.nome,
+      emoji: META[id]?.emoji,
+      cat: META[id]?.cat,
+      fonte: 'Notícias Agrícolas',
+      indicadores: [],
+      erro: null,
+    };
+
+    grid.appendChild(makeCard(id, dadoFinal, idx));
+  });
+
+  // Se grid vazio (filtro sem resultados)
+  if (grid.children.length === 0) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;color:var(--muted);padding:3rem;">
+      Nenhum produto nesta categoria ainda.
+    </div>`;
+  }
+}
+
+/* ── Carrega o JSON ──────────────────────────── */
+async function carregarJson() {
+  const btn = document.getElementById('btn-update');
+  btn.classList.add('loading');
+  document.getElementById('status-text').textContent = 'Carregando…';
+
+  try {
+    // Adiciona cache-buster para garantir versão mais recente
+    const r = await fetch('./cotacoes.json?t=' + Date.now());
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    dadosJson = await r.json();
+
+    const geradoEm = dadosJson.gerado_em || '—';
+    document.getElementById('gerado-em').textContent = geradoEm;
+    document.getElementById('status-text').textContent = 'Atualizado ' + geradoEm;
+
+    renderGrid();
+    showToast('✓ Cotações carregadas', 'ok');
+
+  } catch (err) {
+    console.error(err);
+    document.getElementById('status-text').textContent = 'Erro ao carregar';
+    showToast('⚠ Erro ao carregar cotacoes.json', 'err');
+
+    // Renderiza cards de placeholder mesmo sem dados
+    dadosJson = { dados: {} };
+    renderGrid();
+  } finally {
+    btn.classList.remove('loading');
+  }
+}
+
+function recarregar() {
+  carregarJson();
+}
+
+/* ── Init ─────────────────────────────────────── */
+buildFiltros();
+carregarJson();
+</script>
+</body>
+</html>
