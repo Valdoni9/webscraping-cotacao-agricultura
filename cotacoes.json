@@ -1,363 +1,159 @@
 {
-  "gerado_em": "06/03/2026 20:20",
-  "fonte_site": "https://www.noticiasagricolas.com.br/cotacoes/",
+  "gerado_em": "06/03/2026 22:25",
   "dados": {
     "soja": {
-      "nome": "Soja",
-      "emoji": "🫘",
-      "cat": "graos",
-      "fonte": "Noticias Agricolas / CEPEA",
       "indicadores": [
         {
-          "indicador": "Indicador da Soja ESALQ/B3 - Paranaguá",
-          "unidade": "Valor R$",
-          "data": "05/03/2026",
-          "valor": "129,54",
-          "variacao": "+1,04"
-        },
-        {
-          "indicador": "Indicador da Soja Cepea/Esalq - Paraná",
-          "unidade": "Valor R$/ Saca de 60 kg",
-          "data": "05/03/2026",
-          "valor": "121,80",
-          "variacao": "+0,48"
-        },
-        {
-          "indicador": "Soja - Bolsa de Chicago",
-          "unidade": "Fechamento (US$ / Bushel)",
-          "data": "Março/26",
-          "valor": "11,8500",
-          "variacao": "+21,25"
+          "indicador": "Sorriso/MT (Sindicato)",
+          "valor": "102,50",
+          "variacao": "+1,28",
+          "unidade": "R$/Saca 60 kg",
+          "data": "06/03/2026"
         }
-      ],
-      "erro": null
+      ]
     },
     "milho": {
-      "nome": "Milho",
-      "emoji": "🌽",
-      "cat": "graos",
-      "fonte": "Noticias Agricolas / CEPEA",
       "indicadores": [
         {
-          "indicador": "Indicador do Milho Esalq/B3",
-          "unidade": "Valor (R$/sc 60 kg)",
-          "data": "05/03/2026",
-          "valor": "70,24",
-          "variacao": "+0,01"
-        },
-        {
-          "indicador": "Milho - B3 (Pregão Regular)",
-          "unidade": "Fechamento (R$/sc 60 kg)",
-          "data": "Março/2026",
-          "valor": "72,30",
-          "variacao": "0,49"
-        },
-        {
-          "indicador": "Milho - Bolsa de Chicago",
-          "unidade": "Fechamento (US$ / Bushel)",
-          "data": "Março/26",
-          "valor": "4,4700",
-          "variacao": "+5,50"
+          "indicador": "Sorriso/MT (Sindicato)",
+          "valor": "s/ cotação",
+          "variacao": "-",
+          "unidade": "R$/Saca 60 kg",
+          "data": "06/03/2026"
         }
-      ],
-      "erro": null
-    },
-    "trigo": {
-      "nome": "Trigo",
-      "emoji": "🌾",
-      "cat": "graos",
-      "fonte": "Noticias Agricolas / CEPEA",
-      "indicadores": [
-        {
-          "indicador": "Preço Médio do Trigo Cepea/Esalq",
-          "unidade": "Região",
-          "data": "05/03/2026",
-          "valor": "Paraná",
-          "variacao": "1.190,04"
-        },
-        {
-          "indicador": "Trigo - Bolsa de Chicago",
-          "unidade": "Fechamento (US$ / Bushel)",
-          "data": "Março/26",
-          "valor": "6,1125",
-          "variacao": "+28,50"
-        },
-        {
-          "indicador": "Trigo - Mercado Físico",
-          "unidade": "Preço (R$/sc)",
-          "data": "Não-Me-Toque/RS (Cotrijal)",
-          "valor": "57,00",
-          "variacao": "+1,79"
-        }
-      ],
-      "erro": null
-    },
-    "arroz": {
-      "nome": "Arroz",
-      "emoji": "🍚",
-      "cat": "graos",
-      "fonte": "Noticias Agricolas / CEPEA",
-      "indicadores": [
-        {
-          "indicador": "Indicador Arroz em Casca - Esalq/Senar-RS",
-          "unidade": "Valor R$/ Saca de 50 kg",
-          "data": "05/03/2026",
-          "valor": "55,94",
-          "variacao": "+0,07"
-        },
-        {
-          "indicador": "Arroz - Mercado Físico",
-          "unidade": "Preço (R$/sc 50 kg)",
-          "data": "Capivari do Sul/RS (Coripil)",
-          "valor": "62,00",
-          "variacao": "0,00"
-        },
-        {
-          "indicador": "Arroz (Agulhinha Irrigado) - Mercado Físico",
-          "unidade": "Preço (R$/sc 50 kg",
-          "data": "Alegrete/RS",
-          "valor": "53,50",
-          "variacao": "+5,94"
-        }
-      ],
-      "erro": null
+      ]
     },
     "algodao": {
-      "nome": "Algodão",
-      "emoji": "☁️",
-      "cat": "graos",
-      "fonte": "Noticias Agricolas / CEPEA",
       "indicadores": [
         {
-          "indicador": "Algodão - Indicador Cepea/Esalq",
-          "unidade": "Valor (8 dias) Cent/R$/lb",
-          "data": "05/03/2026",
-          "valor": "355,28",
-          "variacao": "+0,74"
-        },
-        {
-          "indicador": "Algodão - Bolsa de Nova Iorque (NYBOT)",
-          "unidade": "Investing (¢/lb)",
-          "data": "Março/26",
-          "valor": "63,19",
-          "variacao": "109,91"
-        },
-        {
-          "indicador": "Algodão em pluma",
-          "unidade": "Preço (R$/@)",
-          "data": "Sorriso/MT (Sindicato)",
+          "indicador": "Sorriso/MT (Sindicato)",
           "valor": "107,47",
-          "variacao": "+1,35"
+          "variacao": "+1,35",
+          "unidade": "R$/Saca 60 kg",
+          "data": "06/03/2026"
         }
-      ],
-      "erro": null
+      ]
+    },
+    "trigo": {
+      "indicadores": [
+        {
+          "indicador": "Indicador Principal",
+          "valor": "6,1125",
+          "variacao": "+28,50",
+          "unidade": "",
+          "data": "Março/26"
+        }
+      ]
+    },
+    "arroz": {
+      "indicadores": [
+        {
+          "indicador": "Sinop/MT e Sorriso/MT",
+          "valor": "60,00",
+          "variacao": "0,00",
+          "unidade": "R$/Saca 60 kg",
+          "data": "06/03/2026"
+        }
+      ]
     },
     "sorgo": {
-      "nome": "Sorgo",
-      "emoji": "🌿",
-      "cat": "graos",
-      "fonte": "Noticias Agricolas / CEPEA",
       "indicadores": [
         {
-          "indicador": "Sorgo - Mercado Físico",
+          "indicador": "Indicador Principal",
+          "valor": "52,00",
+          "variacao": "0,00",
           "unidade": "Preço (R$/sc)",
-          "data": "Rio do Sul/SC (Cravil)",
-          "valor": "61,00",
-          "variacao": "0,00"
+          "data": "Média RS (Clicmercado)"
         }
-      ],
-      "erro": null
+      ]
     },
     "boi": {
-      "nome": "Boi Gordo",
-      "emoji": "🐂",
-      "cat": "proteina",
-      "fonte": "Noticias Agricolas / CEPEA",
       "indicadores": [
         {
-          "indicador": "Indicador do Boi Gordo Esalq / B3",
+          "indicador": "Indicador Principal",
+          "valor": "346,05",
+          "variacao": "-0,36",
           "unidade": "à vista R$",
-          "data": "05/03/2026",
-          "valor": "347,30",
-          "variacao": "-0,39"
-        },
-        {
-          "indicador": "Boi Gordo - Média SP a prazo",
-          "unidade": "a prazo R$",
-          "data": "05/03/2026",
-          "valor": "351,53",
-          "variacao": "-0,39"
-        },
-        {
-          "indicador": "Boi Gordo - B3 (Pregão Regular)",
-          "unidade": "Fechamento (R$/@)",
-          "data": "Março/2026",
-          "valor": "344,05",
-          "variacao": "0,15"
+          "data": "06/03/2026"
         }
-      ],
-      "erro": null
+      ]
     },
     "frango": {
-      "nome": "Frango",
-      "emoji": "🐔",
-      "cat": "proteina",
-      "fonte": "Noticias Agricolas / CEPEA",
       "indicadores": [
         {
-          "indicador": "Preços do Frango Congelado Cepea/Esalq",
-          "unidade": "R$/Kg",
-          "data": "05/03/2026",
-          "valor": "7,06",
-          "variacao": "0,00"
-        },
-        {
-          "indicador": "Preços do Frango Resfriado Cepea/Esalq",
-          "unidade": "R$/Kg",
-          "data": "05/03/2026",
-          "valor": "7,10",
-          "variacao": "0,00"
+          "indicador": "Indicador Principal",
+          "valor": "4,55",
+          "variacao": "-3,19",
+          "unidade": "Preço (R$/Kg)",
+          "data": "Paraná"
         }
-      ],
-      "erro": null
+      ]
     },
     "suinos": {
-      "nome": "Suínos",
-      "emoji": "🐷",
-      "cat": "proteina",
-      "fonte": "Noticias Agricolas / CEPEA",
       "indicadores": [
         {
-          "indicador": "Indicador do Suíno Vivo Cepea/Esalq",
-          "unidade": "Estado",
-          "data": "05/03/2026",
-          "valor": "MG - posto",
-          "variacao": "6,76"
+          "indicador": "Indicador Principal",
+          "valor": "7,20",
+          "variacao": "0,00",
+          "unidade": "Preço - R$/kg",
+          "data": "São Paulo"
         }
-      ],
-      "erro": null
+      ]
     },
     "leite": {
-      "nome": "Leite",
-      "emoji": "🥛",
-      "cat": "proteina",
-      "fonte": "Noticias Agricolas / CEPEA",
       "indicadores": [
         {
-          "indicador": "Leite - Preços ao Produtor (R$/Litro)",
+          "indicador": "Indicador Principal",
+          "valor": "2,0046",
+          "variacao": "-0,26",
           "unidade": "Preço (R$/Litro)",
-          "data": "Referência: Janeiro/26",
-          "valor": null,
-          "variacao": null
+          "data": "RS"
         }
-      ],
-      "erro": null
+      ]
     },
     "cafe": {
-      "nome": "Café",
-      "emoji": "☕",
-      "cat": "tropicais",
-      "fonte": "Noticias Agricolas / CEPEA",
       "indicadores": [
         {
-          "indicador": "Indicador Café Arábica - Cepea/Esalq",
+          "indicador": "Indicador Principal",
+          "valor": "1.913,12",
+          "variacao": "+2,04",
           "unidade": "Valor R$",
-          "data": "05/03/2026",
-          "valor": "1.874,79",
-          "variacao": "+0,80"
-        },
-        {
-          "indicador": "Indicador Café Robusta - Cepea/Esalq",
-          "unidade": "Valor R$",
-          "data": "05/03/2026",
-          "valor": "1.065,57",
-          "variacao": "-0,22"
-        },
-        {
-          "indicador": "Café - Bolsa de Nova Iorque (NYBOT)",
-          "unidade": "Fech. Investing (¢/lb)",
-          "data": "Março/26",
-          "valor": "297,60",
-          "variacao": "2.070,68"
+          "data": "06/03/2026"
         }
-      ],
-      "erro": null
+      ]
     },
-    "acucar": {
-      "nome": "Sucroenergético",
-      "emoji": "🍬",
-      "cat": "tropicais",
-      "fonte": "Noticias Agricolas / CEPEA",
+    "sucroenergetico": {
       "indicadores": [
         {
-          "indicador": "Indicador do Açúcar Cristal Cepea/Esalq - SP",
+          "indicador": "Indicador Principal",
+          "valor": "97,38",
+          "variacao": "-0,25",
           "unidade": "R$/Saca de 50 Kg",
-          "data": "05/03/2026",
-          "valor": "97,62",
-          "variacao": "-0,62"
-        },
-        {
-          "indicador": "Indicador do Açúcar Cristal Empacotado Cepea/Esalq - SP",
-          "unidade": "Valor R$/5KG",
-          "data": "05/03/2026",
-          "valor": "12,7136",
-          "variacao": "0,00"
-        },
-        {
-          "indicador": "Indicador do Açúcar Refinado Amorfo Cepea/Esalq - SP",
-          "unidade": "Valor R$/KG",
-          "data": "05/03/2026",
-          "valor": "2,9801",
-          "variacao": "0,00"
+          "data": "06/03/2026"
         }
-      ],
-      "erro": null
+      ]
     },
     "laranja": {
-      "nome": "Laranja",
-      "emoji": "🍊",
-      "cat": "tropicais",
-      "fonte": "Noticias Agricolas / CEPEA",
       "indicadores": [
         {
-          "indicador": "Laranja Indústria",
-          "unidade": "R$ a prazo/Caixa 40,8 Kg",
-          "data": "05/03/2026",
+          "indicador": "Indicador Principal",
           "valor": "31,15",
-          "variacao": "-1,11"
-        },
-        {
-          "indicador": "Laranja Pera In Natura",
-          "unidade": "R$/ Caixa 40,8 kg",
-          "data": "05/03/2026",
-          "valor": "43,46",
-          "variacao": "+0,84"
-        },
-        {
-          "indicador": "Suco de Laranja - Bolsa de Nova Iorque (NYBOT)",
-          "unidade": "Fechamento (c/US$/libra peso)",
-          "data": "Março/26",
-          "valor": "174,05",
-          "variacao": "-9,35"
+          "variacao": "0,00",
+          "unidade": "R$ a prazo/Caixa 40,8 Kg",
+          "data": "06/03/2026"
         }
-      ],
-      "erro": null
+      ]
     },
-    "dolar": {
-      "nome": "Dolar (USD/BRL)",
-      "emoji": "💵",
-      "cat": "cambio",
-      "fonte": "Banco Central do Brasil",
+    "cambio": {
       "indicadores": [
         {
-          "indicador": "USD/BRL — Banco Central",
-          "unidade": "R$",
-          "data": "06/03/2026",
+          "indicador": "DÃ³lar (venda)",
           "valor": "5.2878",
-          "variacao": null
+          "variacao": "",
+          "unidade": "BRL/USD",
+          "data": "06/03/2026"
         }
-      ],
-      "erro": null
+      ]
     }
   }
 }
