@@ -1,5 +1,5 @@
 {
-  "gerado_em": "06/03/2026 19:20",
+  "gerado_em": "06/03/2026 20:20",
   "fonte_site": "https://www.noticiasagricolas.com.br/cotacoes/",
   "dados": {
     "soja": {
@@ -26,8 +26,8 @@
           "indicador": "Soja - Bolsa de Chicago",
           "unidade": "Fechamento (US$ / Bushel)",
           "data": "Março/26",
-          "valor": "11,6375",
-          "variacao": "+9,25"
+          "valor": "11,8500",
+          "variacao": "+21,25"
         }
       ],
       "erro": null
@@ -49,15 +49,15 @@
           "indicador": "Milho - B3 (Pregão Regular)",
           "unidade": "Fechamento (R$/sc 60 kg)",
           "data": "Março/2026",
-          "valor": "71,95",
-          "variacao": "0,40"
+          "valor": "72,30",
+          "variacao": "0,49"
         },
         {
           "indicador": "Milho - Bolsa de Chicago",
           "unidade": "Fechamento (US$ / Bushel)",
           "data": "Março/26",
-          "valor": "4,4150",
-          "variacao": "+9,75"
+          "valor": "4,4700",
+          "variacao": "+5,50"
         }
       ],
       "erro": null
@@ -79,8 +79,8 @@
           "indicador": "Trigo - Bolsa de Chicago",
           "unidade": "Fechamento (US$ / Bushel)",
           "data": "Março/26",
-          "valor": "5,8275",
-          "variacao": "+16,00"
+          "valor": "6,1125",
+          "variacao": "+28,50"
         },
         {
           "indicador": "Trigo - Mercado Físico",
@@ -139,8 +139,8 @@
           "indicador": "Algodão - Bolsa de Nova Iorque (NYBOT)",
           "unidade": "Investing (¢/lb)",
           "data": "Março/26",
-          "valor": "63,03",
-          "variacao": "110,05"
+          "valor": "63,19",
+          "variacao": "109,91"
         },
         {
           "indicador": "Algodão em pluma",
@@ -192,8 +192,8 @@
           "indicador": "Boi Gordo - B3 (Pregão Regular)",
           "unidade": "Fechamento (R$/@)",
           "data": "Março/2026",
-          "valor": "343,55",
-          "variacao": "-0,71"
+          "valor": "344,05",
+          "variacao": "0,15"
         }
       ],
       "erro": null
@@ -337,8 +337,8 @@
           "indicador": "Suco de Laranja - Bolsa de Nova Iorque (NYBOT)",
           "unidade": "Fechamento (c/US$/libra peso)",
           "data": "Março/26",
-          "valor": "183,40",
-          "variacao": "-4,40"
+          "valor": "174,05",
+          "variacao": "-9,35"
         }
       ],
       "erro": null
