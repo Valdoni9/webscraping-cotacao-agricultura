@@ -257,7 +257,7 @@ footer{text-align:center;padding:.8rem 1rem;font-size:.72rem;color:var(--muted);
   <div class="grid" id="grid"></div>
 </div>
 
-<footer>Fonte: Agrolink · Notícias Agrícolas · CEPEA/ESALQ · Câmbio BCB/PTAX · Referência Sorriso/MT</footer>
+<footer>Fonte: <a href="https://www.noticiasagricolas.com.br/cotacoes" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline;text-underline-offset:2px">Notícias Agrícolas</a> · CEPEA/ESALQ · <a href="https://www.agrolink.com.br/" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline;text-underline-offset:2px">Agrolink</a> · Câmbio BCB/PTAX · Referência Sorriso/MT</footer>
 
 <button class="tv-exit" id="tv-exit-btn" onclick="sairTV()">✕ Sair do Modo TV</button>
 <div class="toast" id="toast"></div>
@@ -348,7 +348,7 @@ function fmt(v){
   if(n<0) return `▼ ${a.toFixed(dec)}`;
   return '– 0';
 }
-function limUnit(u){ return (u||'').replace(/^(valor\s*|preço\s*|fechamento\s*)/i,'').trim(); }
+function limUnit(u){ return (u||'').replace(/^(valor\s*|preço\s*|fechamento\s*)/i,'').replace(/^\(|\)$/g,'').trim(); }
 
 // ── TICKER ──
 function buildTicker() {
@@ -414,7 +414,12 @@ function renderGrid() {
       }
       const c = cls(ind.variacao);
       const unit = limUnit(ind.unidade);
-      const praca = (ind.indicador||'').includes('Sorriso') ? 'Sorriso/MT' : (ind.indicador||'');
+      const _ind = ind.indicador || '';
+      const _isDate = /^\d{1,2}\/\d{1,2}\/\d{4}$/.test(_ind.trim());
+      const praca = _ind.toLowerCase().includes('sorriso') ? 'Sorriso/MT'
+            : _ind.toLowerCase().includes('agrolink') ? 'MT/Agrolink (méd. mensal)'
+            : _isDate ? 'CEPEA/ESALQ'
+            : _ind || '';
       const pts = hist[p.id]||[];
       const hasHist = pts.length >= 2;
       const minV = hasHist ? Math.min(...pts.map(x=>x.v)).toFixed(2) : '—';
