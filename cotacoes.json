@@ -1,5 +1,5 @@
 {
-  "gerado_em": "10/03/2026 13:32",
+  "gerado_em": "10/03/2026 15:52",
   "dados": {
     "soja": {
       "indicadores": [
@@ -26,11 +26,11 @@
     "algodao": {
       "indicadores": [
         {
-          "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "108,34",
-          "variacao": "+0,81",
-          "unidade": "R$/@ 15kg",
-          "data": "10/03/2026"
+          "indicador": "09/03/2026",
+          "valor": "355,47",
+          "variacao": "-0,50",
+          "unidade": "Valor (8 dias) Cent/R$/lb",
+          "data": "09/03/2026"
         }
       ]
     },
@@ -147,11 +147,11 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda)",
-          "valor": "-",
+          "indicador": "Dolar (venda) (09/03/2026)",
+          "valor": "5.2139",
           "variacao": "",
           "unidade": "BRL/USD",
-          "data": "10/03/2026"
+          "data": "09/03/2026"
         }
       ]
     }
