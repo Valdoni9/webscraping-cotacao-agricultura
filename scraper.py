@@ -150,25 +150,38 @@ def scrape_produto(prod_id, slug, termo, unidade_override):
     return {'indicadores': inds}
 
 def scrape_cambio():
+    """Busca PTAX do BCB. Tenta hoje; se ainda nao publicado, usa ultimo dia util."""
     try:
-        data_str = datetime.now().strftime('%m-%d-%Y')
-        url = (
-            f'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/'
-            f'CotacaoDolarDia(dataCotacao=@dataCotacao)'
-            f'?@dataCotacao=%27{data_str}%27&$format=json'
-        )
-        r     = requests.get(url, timeout=10)
-        dados = r.json()
-        valor = dados['value'][0]['cotacaoVenda'] if dados.get('value') else None
-        return {
-            'indicadores': [{
-                'indicador': 'Dolar (venda)',
-                'valor':     f'{valor:.4f}' if valor else '-',
-                'variacao':  '',
-                'unidade':   'BRL/USD',
-                'data':      datetime.now().strftime('%d/%m/%Y'),
-            }]
-        }
+        from datetime import timedelta
+        hoje = datetime.now()
+        for i in range(6):
+            dt = hoje - timedelta(days=i)
+            if dt.weekday() >= 5:  # pula fim de semana
+                continue
+            data_str = dt.strftime('%m-%d-%Y')
+            url = (
+                f'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/'
+                f'CotacaoDolarDia(dataCotacao=@dataCotacao)'
+                f'?@dataCotacao=%27{data_str}%27&$format=json'
+            )
+            r     = requests.get(url, timeout=10)
+            dados = r.json()
+            if dados.get('value'):
+                valor    = dados['value'][0]['cotacaoVenda']
+                data_ref = dt.strftime('%d/%m/%Y')
+                sufixo   = '' if dt.date() == hoje.date() else f' ({data_ref})'
+                print(f'  Cambio: R$ {valor:.4f}{sufixo}')
+                return {
+                    'indicadores': [{
+                        'indicador': f'Dolar (venda){sufixo}',
+                        'valor':     f'{valor:.4f}',
+                        'variacao':  '',
+                        'unidade':   'BRL/USD',
+                        'data':      data_ref,
+                    }]
+                }
+        print('  Cambio: sem dados BCB')
+        return {'indicadores': []}
     except Exception as e:
         print(f'  Cambio erro: {e}')
         return {'indicadores': []}
