@@ -1,12 +1,12 @@
 {
-  "gerado_em": "17/03/2026 15:55",
+  "gerado_em": "17/03/2026 20:28",
   "dados": {
     "soja": {
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "102,40",
-          "variacao": "+0,20",
+          "valor": "100,00",
+          "variacao": "-2,34",
           "unidade": "R$/Sc 60kg",
           "data": "17/03/2026"
         }
@@ -27,8 +27,8 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "110,03",
-          "variacao": "+2,61",
+          "valor": "110,96",
+          "variacao": "+0,85",
           "unidade": "R$/@ 15kg",
           "data": "17/03/2026"
         }
@@ -147,11 +147,11 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda) (16/03/2026)",
-          "valor": "5.2647",
+          "indicador": "Dolar (venda)",
+          "valor": "5.2022",
           "variacao": "",
           "unidade": "BRL/USD",
-          "data": "16/03/2026"
+          "data": "17/03/2026"
         }
       ]
     }
