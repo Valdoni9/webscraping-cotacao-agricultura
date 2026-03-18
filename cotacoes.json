@@ -1,5 +1,5 @@
 {
-  "gerado_em": "18/03/2026 11:38",
+  "gerado_em": "18/03/2026 16:00",
   "dados": {
     "soja": {
       "indicadores": [
@@ -27,8 +27,8 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "110,96",
-          "variacao": "+0,85",
+          "valor": "111,18",
+          "variacao": "+0,20",
           "unidade": "R$/@ 15kg",
           "data": "18/03/2026"
         }
