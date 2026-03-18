@@ -1,12 +1,12 @@
 {
-  "gerado_em": "18/03/2026 16:00",
+  "gerado_em": "18/03/2026 20:25",
   "dados": {
     "soja": {
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "100,00",
-          "variacao": "-2,34",
+          "valor": "99,20",
+          "variacao": "-0,80",
           "unidade": "R$/Sc 60kg",
           "data": "18/03/2026"
         }
@@ -15,11 +15,11 @@
     "milho": {
       "indicadores": [
         {
-          "indicador": "17/03/2026",
-          "valor": "72,02",
-          "variacao": "-0,11",
-          "unidade": "Valor (R$/sc 60 kg)",
-          "data": "17/03/2026"
+          "indicador": "Sorriso/MT (Sindicato)",
+          "valor": "45,70",
+          "variacao": "-",
+          "unidade": "R$/Sc 60kg",
+          "data": "18/03/2026"
         }
       ]
     },
@@ -147,11 +147,11 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda) (17/03/2026)",
-          "valor": "5.2022",
+          "indicador": "Dolar (venda)",
+          "valor": "5.2112",
           "variacao": "",
           "unidade": "BRL/USD",
-          "data": "17/03/2026"
+          "data": "18/03/2026"
         }
       ]
     }
