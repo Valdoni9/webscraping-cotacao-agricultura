@@ -1,36 +1,36 @@
 {
-  "gerado_em": "23/03/2026 15:52",
+  "gerado_em": "23/03/2026 20:28",
   "dados": {
     "soja": {
       "indicadores": [
         {
-          "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "101,40",
-          "variacao": "+1,40",
-          "unidade": "R$/Sc 60kg",
-          "data": "23/03/2026"
+          "indicador": "20/03/2026",
+          "valor": "130,61",
+          "variacao": "+0,95",
+          "unidade": "Valor R$",
+          "data": "20/03/2026"
         }
       ]
     },
     "milho": {
       "indicadores": [
         {
-          "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "45,60",
-          "variacao": "-0,65",
-          "unidade": "R$/Sc 60kg",
-          "data": "23/03/2026"
+          "indicador": "20/03/2026",
+          "valor": "71,37",
+          "variacao": "-0,36",
+          "unidade": "Valor (R$/sc 60 kg)",
+          "data": "20/03/2026"
         }
       ]
     },
     "algodao": {
       "indicadores": [
         {
-          "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "113,20",
-          "variacao": "+1,49",
-          "unidade": "R$/@ 15kg",
-          "data": "23/03/2026"
+          "indicador": "20/03/2026",
+          "valor": "374,45",
+          "variacao": "+0,72",
+          "unidade": "Valor (8 dias) Cent/R$/lb",
+          "data": "20/03/2026"
         }
       ]
     },
@@ -71,8 +71,8 @@
       "indicadores": [
         {
           "indicador": "MT Norte",
-          "valor": "330,50",
-          "variacao": "334,00",
+          "valor": "331,50",
+          "variacao": "335,00",
           "unidade": "R$/@",
           "data": "23/03/2026"
         }
@@ -145,15 +145,7 @@
       ]
     },
     "cambio": {
-      "indicadores": [
-        {
-          "indicador": "Dolar (venda) (20/03/2026)",
-          "valor": "5.2800",
-          "variacao": "",
-          "unidade": "BRL/USD",
-          "data": "20/03/2026"
-        }
-      ]
+      "indicadores": []
     }
   }
 }
