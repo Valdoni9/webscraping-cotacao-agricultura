@@ -1,36 +1,36 @@
 {
-  "gerado_em": "24/03/2026 15:57",
+  "gerado_em": "24/03/2026 20:30",
   "dados": {
     "soja": {
       "indicadores": [
         {
-          "indicador": "20/03/2026",
-          "valor": "129,87",
-          "variacao": "-0,57",
-          "unidade": "Valor R$",
-          "data": "20/03/2026"
+          "indicador": "Sorriso/MT (Sindicato)",
+          "valor": "101,40",
+          "variacao": "-",
+          "unidade": "R$/Sc 60kg",
+          "data": "24/03/2026"
         }
       ]
     },
     "milho": {
       "indicadores": [
         {
-          "indicador": "23/03/2026",
-          "valor": "71,25",
-          "variacao": "-0,17",
-          "unidade": "Valor (R$/sc 60 kg)",
-          "data": "23/03/2026"
+          "indicador": "Sorriso/MT (Sindicato)",
+          "valor": "45,60",
+          "variacao": "-",
+          "unidade": "R$/Sc 60kg",
+          "data": "24/03/2026"
         }
       ]
     },
     "algodao": {
       "indicadores": [
         {
-          "indicador": "23/03/2026",
-          "valor": "370,08",
-          "variacao": "-1,17",
-          "unidade": "Valor (8 dias) Cent/R$/lb",
-          "data": "23/03/2026"
+          "indicador": "Sorriso/MT (Sindicato)",
+          "valor": "113,20",
+          "variacao": "-",
+          "unidade": "R$/@ 15kg",
+          "data": "24/03/2026"
         }
       ]
     },
@@ -147,11 +147,11 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda) (23/03/2026)",
-          "valor": "5.2440",
+          "indicador": "Dolar (venda)",
+          "valor": "5.2599",
           "variacao": "",
           "unidade": "BRL/USD",
-          "data": "23/03/2026"
+          "data": "24/03/2026"
         }
       ]
     }
