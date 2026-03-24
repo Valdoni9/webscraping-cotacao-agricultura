@@ -1,12 +1,12 @@
 {
-  "gerado_em": "23/03/2026 20:28",
+  "gerado_em": "24/03/2026 11:38",
   "dados": {
     "soja": {
       "indicadores": [
         {
           "indicador": "20/03/2026",
-          "valor": "130,61",
-          "variacao": "+0,95",
+          "valor": "129,87",
+          "variacao": "-0,57",
           "unidade": "Valor R$",
           "data": "20/03/2026"
         }
@@ -15,33 +15,33 @@
     "milho": {
       "indicadores": [
         {
-          "indicador": "20/03/2026",
-          "valor": "71,37",
-          "variacao": "-0,36",
+          "indicador": "23/03/2026",
+          "valor": "71,25",
+          "variacao": "-0,17",
           "unidade": "Valor (R$/sc 60 kg)",
-          "data": "20/03/2026"
+          "data": "23/03/2026"
         }
       ]
     },
     "algodao": {
       "indicadores": [
         {
-          "indicador": "20/03/2026",
-          "valor": "374,45",
-          "variacao": "+0,72",
+          "indicador": "23/03/2026",
+          "valor": "370,08",
+          "variacao": "-1,17",
           "unidade": "Valor (8 dias) Cent/R$/lb",
-          "data": "20/03/2026"
+          "data": "23/03/2026"
         }
       ]
     },
     "trigo": {
       "indicadores": [
         {
-          "indicador": "20/03/2026",
-          "valor": "1.251,47",
-          "variacao": "+0,02",
+          "indicador": "23/03/2026",
+          "valor": "1.251,49",
+          "variacao": "0,00",
           "unidade": "R$/t",
-          "data": "20/03/2026"
+          "data": "23/03/2026"
         }
       ]
     },
@@ -52,7 +52,7 @@
           "valor": "60,00",
           "variacao": "0,00",
           "unidade": "R$/Sc 50kg",
-          "data": "23/03/2026"
+          "data": "24/03/2026"
         }
       ]
     },
@@ -74,29 +74,29 @@
           "valor": "331,50",
           "variacao": "335,00",
           "unidade": "R$/@",
-          "data": "23/03/2026"
+          "data": "24/03/2026"
         }
       ]
     },
     "frango": {
       "indicadores": [
         {
-          "indicador": "20/03/2026",
-          "valor": "6,81",
-          "variacao": "0,00",
+          "indicador": "23/03/2026",
+          "valor": "6,88",
+          "variacao": "+1,03",
           "unidade": "R$/Kg",
-          "data": "20/03/2026"
+          "data": "23/03/2026"
         }
       ]
     },
     "suinos": {
       "indicadores": [
         {
-          "indicador": "20/03/2026",
+          "indicador": "23/03/2026",
           "valor": "6,75",
           "variacao": "0,00",
           "unidade": "R$/Kg",
-          "data": "20/03/2026"
+          "data": "23/03/2026"
         }
       ]
     },
@@ -114,38 +114,46 @@
     "cafe": {
       "indicadores": [
         {
-          "indicador": "20/03/2026",
-          "valor": "1.962,67",
-          "variacao": "+1,98",
+          "indicador": "23/03/2026",
+          "valor": "1.963,83",
+          "variacao": "+0,06",
           "unidade": "Valor R$",
-          "data": "20/03/2026"
+          "data": "23/03/2026"
         }
       ]
     },
     "sucroenergetico": {
       "indicadores": [
         {
-          "indicador": "19/03/2026",
-          "valor": "100,51",
-          "variacao": "+2,39",
+          "indicador": "23/03/2026",
+          "valor": "100,77",
+          "variacao": "-0,54",
           "unidade": "R$/Saca de 50 Kg",
-          "data": "19/03/2026"
+          "data": "23/03/2026"
         }
       ]
     },
     "laranja": {
       "indicadores": [
         {
-          "indicador": "20/03/2026",
-          "valor": "30,77",
-          "variacao": "+0,20",
+          "indicador": "23/03/2026",
+          "valor": "30,23",
+          "variacao": "-1,75",
           "unidade": "R$ a prazo/Caixa 40,8 Kg",
-          "data": "20/03/2026"
+          "data": "23/03/2026"
         }
       ]
     },
     "cambio": {
-      "indicadores": []
+      "indicadores": [
+        {
+          "indicador": "Dolar (venda) (23/03/2026)",
+          "valor": "5.2440",
+          "variacao": "",
+          "unidade": "BRL/USD",
+          "data": "23/03/2026"
+        }
+      ]
     }
   }
 }
