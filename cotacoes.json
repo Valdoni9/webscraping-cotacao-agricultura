@@ -1,5 +1,5 @@
 {
-  "gerado_em": "01/04/2026 20:34",
+  "gerado_em": "02/04/2026 11:38",
   "dados": {
     "soja": {
       "indicadores": [
@@ -8,7 +8,7 @@
           "valor": "103,50",
           "variacao": "+0,39",
           "unidade": "R$/Sc 60kg",
-          "data": "01/04/2026"
+          "data": "02/04/2026"
         }
       ]
     },
@@ -19,7 +19,7 @@
           "valor": "46,00",
           "variacao": "+0,33",
           "unidade": "R$/Sc 60kg",
-          "data": "01/04/2026"
+          "data": "02/04/2026"
         }
       ]
     },
@@ -30,18 +30,18 @@
           "valor": "119,39",
           "variacao": "+2,62",
           "unidade": "R$/@ 15kg",
-          "data": "01/04/2026"
+          "data": "02/04/2026"
         }
       ]
     },
     "trigo": {
       "indicadores": [
         {
-          "indicador": "31/03/2026",
-          "valor": "1.284,93",
-          "variacao": "+0,52",
+          "indicador": "01/04/2026",
+          "valor": "1.289,02",
+          "variacao": "+0,32",
           "unidade": "R$/t",
-          "data": "31/03/2026"
+          "data": "01/04/2026"
         }
       ]
     },
@@ -49,10 +49,10 @@
       "indicadores": [
         {
           "indicador": "Sinop/MT e Sorriso/MT",
-          "valor": "75,00",
-          "variacao": "+25,00",
+          "valor": "80,00",
+          "variacao": "+6,67",
           "unidade": "R$/Sc 50kg",
-          "data": "01/04/2026"
+          "data": "02/04/2026"
         }
       ]
     },
@@ -74,29 +74,29 @@
           "valor": "343,50",
           "variacao": "347,00",
           "unidade": "R$/@",
-          "data": "01/04/2026"
+          "data": "02/04/2026"
         }
       ]
     },
     "frango": {
       "indicadores": [
         {
-          "indicador": "31/03/2026",
+          "indicador": "01/04/2026",
           "valor": "7,24",
-          "variacao": "+2,12",
+          "variacao": "0,00",
           "unidade": "R$/Kg",
-          "data": "31/03/2026"
+          "data": "01/04/2026"
         }
       ]
     },
     "suinos": {
       "indicadores": [
         {
-          "indicador": "31/03/2026",
-          "valor": "6,57",
-          "variacao": "-0,76",
+          "indicador": "01/04/2026",
+          "valor": "6,54",
+          "variacao": "-0,46",
           "unidade": "R$/Kg",
-          "data": "31/03/2026"
+          "data": "01/04/2026"
         }
       ]
     },
@@ -104,8 +104,8 @@
       "indicadores": [
         {
           "indicador": "RS",
-          "valor": "2,0046",
-          "variacao": "-0,26",
+          "valor": "2,0962",
+          "variacao": "+4,57",
           "unidade": "Preço (R$/Litro)",
           "data": "RS"
         }
@@ -114,40 +114,40 @@
     "cafe": {
       "indicadores": [
         {
-          "indicador": "31/03/2026",
-          "valor": "1.887,79",
-          "variacao": "-0,59",
+          "indicador": "01/04/2026",
+          "valor": "1.880,08",
+          "variacao": "-0,41",
           "unidade": "Valor R$",
-          "data": "31/03/2026"
+          "data": "01/04/2026"
         }
       ]
     },
     "sucroenergetico": {
       "indicadores": [
         {
-          "indicador": "31/03/2026",
-          "valor": "105,46",
-          "variacao": "+0,05",
+          "indicador": "01/04/2026",
+          "valor": "105,33",
+          "variacao": "-0,12",
           "unidade": "R$/Saca de 50 Kg",
-          "data": "31/03/2026"
+          "data": "01/04/2026"
         }
       ]
     },
     "laranja": {
       "indicadores": [
         {
-          "indicador": "31/03/2026",
+          "indicador": "01/04/2026",
           "valor": "29,29",
-          "variacao": "-0,31",
+          "variacao": "0,00",
           "unidade": "R$ a prazo/Caixa 40,8 Kg",
-          "data": "31/03/2026"
+          "data": "01/04/2026"
         }
       ]
     },
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda)",
+          "indicador": "Dolar (venda) (01/04/2026)",
           "valor": "5.1606",
           "variacao": "",
           "unidade": "BRL/USD",
