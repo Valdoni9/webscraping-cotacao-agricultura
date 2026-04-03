@@ -1,5 +1,5 @@
 {
-  "gerado_em": "02/04/2026 20:24",
+  "gerado_em": "03/04/2026 11:31",
   "dados": {
     "soja": {
       "indicadores": [
@@ -8,7 +8,7 @@
           "valor": "103,50",
           "variacao": "0,00",
           "unidade": "R$/Sc 60kg",
-          "data": "02/04/2026"
+          "data": "03/04/2026"
         }
       ]
     },
@@ -19,7 +19,7 @@
           "valor": "46,00",
           "variacao": "0,00",
           "unidade": "R$/Sc 60kg",
-          "data": "02/04/2026"
+          "data": "03/04/2026"
         }
       ]
     },
@@ -30,7 +30,7 @@
           "valor": "119,39",
           "variacao": "0,00",
           "unidade": "R$/@ 15kg",
-          "data": "02/04/2026"
+          "data": "03/04/2026"
         }
       ]
     },
@@ -52,7 +52,7 @@
           "valor": "80,00",
           "variacao": "+6,67",
           "unidade": "R$/Sc 50kg",
-          "data": "02/04/2026"
+          "data": "03/04/2026"
         }
       ]
     },
@@ -74,7 +74,7 @@
           "valor": "346,50",
           "variacao": "350,00",
           "unidade": "R$/@",
-          "data": "02/04/2026"
+          "data": "03/04/2026"
         }
       ]
     },
@@ -147,7 +147,7 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda)",
+          "indicador": "Dolar (venda) (02/04/2026)",
           "valor": "5.1655",
           "variacao": "",
           "unidade": "BRL/USD",
