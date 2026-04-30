@@ -1,5 +1,5 @@
 {
-  "gerado_em": "30/04/2026 12:07",
+  "gerado_em": "30/04/2026 16:12",
   "dados": {
     "soja": {
       "indicadores": [
@@ -28,7 +28,7 @@
         {
           "indicador": "Sorriso/MT (Sindicato)",
           "valor": "126,73",
-          "variacao": "+0,39",
+          "variacao": "0,00",
           "unidade": "R$/@ 15kg",
           "data": "30/04/2026"
         }
@@ -147,11 +147,11 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda) (29/04/2026)",
-          "valor": "4.9985",
+          "indicador": "Dolar (venda)",
+          "valor": "4.9886",
           "variacao": "",
           "unidade": "BRL/USD",
-          "data": "29/04/2026"
+          "data": "30/04/2026"
         }
       ]
     }
