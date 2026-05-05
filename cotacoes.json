@@ -1,5 +1,5 @@
 {
-  "gerado_em": "05/05/2026 11:54",
+  "gerado_em": "05/05/2026 16:18",
   "dados": {
     "soja": {
       "indicadores": [
@@ -147,11 +147,11 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda) (04/05/2026)",
-          "valor": "4.9587",
+          "indicador": "Dolar (venda)",
+          "valor": "4.9242",
           "variacao": "",
           "unidade": "BRL/USD",
-          "data": "04/05/2026"
+          "data": "05/05/2026"
         }
       ]
     }
