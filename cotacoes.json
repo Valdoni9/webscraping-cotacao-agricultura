@@ -1,12 +1,12 @@
 {
-  "gerado_em": "25/05/2026 16:58",
+  "gerado_em": "25/05/2026 20:55",
   "dados": {
     "soja": {
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "103,40",
-          "variacao": "-0,58",
+          "valor": "104,00",
+          "variacao": "+0,58",
           "unidade": "R$/Sc 60kg",
           "data": "25/05/2026"
         }
@@ -16,7 +16,7 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "42,70",
+          "valor": "42,60",
           "variacao": "-0,23",
           "unidade": "R$/Sc 60kg",
           "data": "25/05/2026"
@@ -61,7 +61,7 @@
         {
           "indicador": "Média RS (Clicmercado)",
           "valor": "50,00",
-          "variacao": "-3,85",
+          "variacao": "0,00",
           "unidade": "Preço (R$/sc)",
           "data": "Média RS (Clicmercado)"
         }
@@ -71,8 +71,8 @@
       "indicadores": [
         {
           "indicador": "MT Norte",
-          "valor": "344,00",
-          "variacao": "348,00",
+          "valor": "341,00",
+          "variacao": "345,00",
           "unidade": "R$/@",
           "data": "25/05/2026"
         }
