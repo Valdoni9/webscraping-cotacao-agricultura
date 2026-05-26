@@ -1,5 +1,5 @@
 {
-  "gerado_em": "26/05/2026 13:46",
+  "gerado_em": "26/05/2026 17:50",
   "dados": {
     "soja": {
       "indicadores": [
@@ -27,8 +27,8 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "130,13",
-          "variacao": "+0,25",
+          "valor": "131,61",
+          "variacao": "+1,14",
           "unidade": "R$/@ 15kg",
           "data": "26/05/2026"
         }
@@ -147,11 +147,11 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda) (25/05/2026)",
-          "valor": "5.0072",
+          "indicador": "Dolar (venda)",
+          "valor": "5.0211",
           "variacao": "",
           "unidade": "BRL/USD",
-          "data": "25/05/2026"
+          "data": "26/05/2026"
         }
       ]
     }
