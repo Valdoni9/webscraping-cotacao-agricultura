@@ -1,5 +1,5 @@
 {
-  "gerado_em": "01/06/2026 19:51",
+  "gerado_em": "01/06/2026 22:28",
   "dados": {
     "soja": {
       "indicadores": [
@@ -37,11 +37,11 @@
     "trigo": {
       "indicadores": [
         {
-          "indicador": "29/05/2026",
-          "valor": "1.359,61",
-          "variacao": "+0,06",
-          "unidade": "R$/t",
-          "data": "29/05/2026"
+          "indicador": "Julho/26",
+          "valor": "6,0875",
+          "variacao": "-1,75",
+          "unidade": "",
+          "data": "Julho/26"
         }
       ]
     },
@@ -92,11 +92,11 @@
     "suinos": {
       "indicadores": [
         {
-          "indicador": "29/05/2026",
-          "valor": "5,62",
-          "variacao": "+0,18",
-          "unidade": "R$/Kg",
-          "data": "29/05/2026"
+          "indicador": "São Paulo",
+          "valor": "5,65",
+          "variacao": "0,00",
+          "unidade": "Preço - R$/kg",
+          "data": "São Paulo"
         }
       ]
     },
@@ -114,22 +114,22 @@
     "cafe": {
       "indicadores": [
         {
-          "indicador": "29/05/2026",
-          "valor": "1.555,67",
-          "variacao": "-2,85",
-          "unidade": "Valor R$",
-          "data": "29/05/2026"
+          "indicador": "Julho/26",
+          "valor": "1.733,95",
+          "variacao": "-5,00",
+          "unidade": "Fechamento (R$/Sc de 60 kg)",
+          "data": "Julho/26"
         }
       ]
     },
     "sucroenergetico": {
       "indicadores": [
         {
-          "indicador": "29/05/2026",
-          "valor": "93,00",
-          "variacao": "-0,90",
-          "unidade": "R$/Saca de 50 Kg",
-          "data": "29/05/2026"
+          "indicador": "Julho/26",
+          "valor": "14,45",
+          "variacao": "+0,39",
+          "unidade": "",
+          "data": "Julho/26"
         }
       ]
     },
