@@ -1,12 +1,12 @@
 {
-  "gerado_em": "03/06/2026 18:39",
+  "gerado_em": "03/06/2026 22:22",
   "dados": {
     "soja": {
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "104,60",
-          "variacao": "-0,38",
+          "valor": "104,00",
+          "variacao": "-0,57",
           "unidade": "R$/Sc 60kg",
           "data": "03/06/2026"
         }
@@ -16,8 +16,8 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "42,60",
-          "variacao": "+0,24",
+          "valor": "42,40",
+          "variacao": "-0,47",
           "unidade": "R$/Sc 60kg",
           "data": "03/06/2026"
         }
@@ -92,11 +92,11 @@
     "suinos": {
       "indicadores": [
         {
-          "indicador": "02/06/2026",
-          "valor": "5,60",
-          "variacao": "+0,18",
+          "indicador": "03/06/2026",
+          "valor": "5,59",
+          "variacao": "-0,18",
           "unidade": "R$/Kg",
-          "data": "02/06/2026"
+          "data": "03/06/2026"
         }
       ]
     },
@@ -114,33 +114,33 @@
     "cafe": {
       "indicadores": [
         {
-          "indicador": "02/06/2026",
-          "valor": "1.521,66",
-          "variacao": "-0,79",
+          "indicador": "03/06/2026",
+          "valor": "1.489,38",
+          "variacao": "-2,12",
           "unidade": "Valor R$",
-          "data": "02/06/2026"
+          "data": "03/06/2026"
         }
       ]
     },
     "sucroenergetico": {
       "indicadores": [
         {
-          "indicador": "02/06/2026",
-          "valor": "93,02",
-          "variacao": "-1,33",
+          "indicador": "03/06/2026",
+          "valor": "93,24",
+          "variacao": "+0,24",
           "unidade": "R$/Saca de 50 Kg",
-          "data": "02/06/2026"
+          "data": "03/06/2026"
         }
       ]
     },
     "laranja": {
       "indicadores": [
         {
-          "indicador": "02/06/2026",
+          "indicador": "03/06/2026",
           "valor": "24,44",
           "variacao": "0,00",
           "unidade": "R$ a prazo/Caixa 40,8 Kg",
-          "data": "02/06/2026"
+          "data": "03/06/2026"
         }
       ]
     },
