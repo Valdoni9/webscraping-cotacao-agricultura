@@ -1,5 +1,5 @@
 {
-  "gerado_em": "17/06/2026 21:51",
+  "gerado_em": "18/06/2026 13:54",
   "dados": {
     "soja": {
       "indicadores": [
@@ -8,7 +8,7 @@
           "valor": "106,50",
           "variacao": "+0,38",
           "unidade": "R$/Sc 60kg",
-          "data": "17/06/2026"
+          "data": "18/06/2026"
         }
       ]
     },
@@ -19,7 +19,7 @@
           "valor": "41,65",
           "variacao": "-0,24",
           "unidade": "R$/Sc 60kg",
-          "data": "17/06/2026"
+          "data": "18/06/2026"
         }
       ]
     },
@@ -30,18 +30,18 @@
           "valor": "129,06",
           "variacao": "0,00",
           "unidade": "R$/@ 15kg",
-          "data": "17/06/2026"
+          "data": "18/06/2026"
         }
       ]
     },
     "trigo": {
       "indicadores": [
         {
-          "indicador": "16/06/2026",
-          "valor": "1.369,37",
-          "variacao": "-0,34",
+          "indicador": "17/06/2026",
+          "valor": "1.376,72",
+          "variacao": "+0,54",
           "unidade": "R$/t",
-          "data": "16/06/2026"
+          "data": "17/06/2026"
         }
       ]
     },
@@ -52,7 +52,7 @@
           "valor": "96,00",
           "variacao": "+9,09",
           "unidade": "R$/Sc 50kg",
-          "data": "17/06/2026"
+          "data": "18/06/2026"
         }
       ]
     },
@@ -74,29 +74,29 @@
           "valor": "341,50",
           "variacao": "345,00",
           "unidade": "R$/@",
-          "data": "17/06/2026"
+          "data": "18/06/2026"
         }
       ]
     },
     "frango": {
       "indicadores": [
         {
-          "indicador": "16/06/2026",
+          "indicador": "17/06/2026",
           "valor": "7,29",
-          "variacao": "-0,55",
+          "variacao": "0,00",
           "unidade": "R$/Kg",
-          "data": "16/06/2026"
+          "data": "17/06/2026"
         }
       ]
     },
     "suinos": {
       "indicadores": [
         {
-          "indicador": "16/06/2026",
-          "valor": "5,96",
-          "variacao": "+1,71",
+          "indicador": "17/06/2026",
+          "valor": "5,95",
+          "variacao": "-0,17",
           "unidade": "R$/Kg",
-          "data": "16/06/2026"
+          "data": "17/06/2026"
         }
       ]
     },
@@ -114,40 +114,40 @@
     "cafe": {
       "indicadores": [
         {
-          "indicador": "16/06/2026",
-          "valor": "1.474,18",
-          "variacao": "+3,26",
+          "indicador": "17/06/2026",
+          "valor": "1.505,10",
+          "variacao": "+2,10",
           "unidade": "Valor R$",
-          "data": "16/06/2026"
+          "data": "17/06/2026"
         }
       ]
     },
     "sucroenergetico": {
       "indicadores": [
         {
-          "indicador": "16/06/2026",
-          "valor": "92,10",
-          "variacao": "-1,63",
+          "indicador": "17/06/2026",
+          "valor": "91,48",
+          "variacao": "-0,67",
           "unidade": "R$/Saca de 50 Kg",
-          "data": "16/06/2026"
+          "data": "17/06/2026"
         }
       ]
     },
     "laranja": {
       "indicadores": [
         {
-          "indicador": "16/06/2026",
-          "valor": "25,17",
-          "variacao": "0,00",
+          "indicador": "17/06/2026",
+          "valor": "25,14",
+          "variacao": "-0,12",
           "unidade": "R$ a prazo/Caixa 40,8 Kg",
-          "data": "16/06/2026"
+          "data": "17/06/2026"
         }
       ]
     },
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda)",
+          "indicador": "Dolar (venda) (17/06/2026)",
           "valor": "5.0641",
           "variacao": "",
           "unidade": "BRL/USD",
