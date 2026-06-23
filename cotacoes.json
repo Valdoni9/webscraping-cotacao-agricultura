@@ -1,5 +1,5 @@
 {
-  "gerado_em": "22/06/2026 21:54",
+  "gerado_em": "23/06/2026 13:35",
   "dados": {
     "soja": {
       "indicadores": [
@@ -8,7 +8,7 @@
           "valor": "107,50",
           "variacao": "+0,09",
           "unidade": "R$/Sc 60kg",
-          "data": "22/06/2026"
+          "data": "23/06/2026"
         }
       ]
     },
@@ -19,7 +19,7 @@
           "valor": "41,50",
           "variacao": "0,00",
           "unidade": "R$/Sc 60kg",
-          "data": "22/06/2026"
+          "data": "23/06/2026"
         }
       ]
     },
@@ -30,18 +30,18 @@
           "valor": "127,64",
           "variacao": "-0,45",
           "unidade": "R$/@ 15kg",
-          "data": "22/06/2026"
+          "data": "23/06/2026"
         }
       ]
     },
     "trigo": {
       "indicadores": [
         {
-          "indicador": "Julho/26",
-          "valor": "5,9750",
-          "variacao": "-8,25",
-          "unidade": "",
-          "data": "Julho/26"
+          "indicador": "22/06/2026",
+          "valor": "1.368,01",
+          "variacao": "-0,68",
+          "unidade": "R$/t",
+          "data": "22/06/2026"
         }
       ]
     },
@@ -52,7 +52,7 @@
           "valor": "96,00",
           "variacao": "+9,09",
           "unidade": "R$/Sc 50kg",
-          "data": "22/06/2026"
+          "data": "23/06/2026"
         }
       ]
     },
@@ -74,29 +74,29 @@
           "valor": "336,50",
           "variacao": "340,00",
           "unidade": "R$/@",
-          "data": "22/06/2026"
+          "data": "23/06/2026"
         }
       ]
     },
     "frango": {
       "indicadores": [
         {
-          "indicador": "Paraná",
-          "valor": "4,76",
-          "variacao": "0,00",
-          "unidade": "Preço (R$/Kg)",
-          "data": "Paraná"
+          "indicador": "22/06/2026",
+          "valor": "7,29",
+          "variacao": "+0,28",
+          "unidade": "R$/Kg",
+          "data": "22/06/2026"
         }
       ]
     },
     "suinos": {
       "indicadores": [
         {
-          "indicador": "São Paulo",
-          "valor": "5,76",
+          "indicador": "22/06/2026",
+          "valor": "5,95",
           "variacao": "0,00",
-          "unidade": "Preço - R$/kg",
-          "data": "São Paulo"
+          "unidade": "R$/Kg",
+          "data": "22/06/2026"
         }
       ]
     },
@@ -114,40 +114,40 @@
     "cafe": {
       "indicadores": [
         {
-          "indicador": "Julho/26",
-          "valor": "1.883,38",
-          "variacao": "+1,90",
-          "unidade": "Fechamento (R$/Sc de 60 kg)",
-          "data": "Julho/26"
+          "indicador": "22/06/2026",
+          "valor": "1.472,20",
+          "variacao": "-2,11",
+          "unidade": "Valor R$",
+          "data": "22/06/2026"
         }
       ]
     },
     "sucroenergetico": {
       "indicadores": [
         {
-          "indicador": "Julho/26",
-          "valor": "13,35",
-          "variacao": "-0,24",
-          "unidade": "",
-          "data": "Julho/26"
+          "indicador": "22/06/2026",
+          "valor": "91,60",
+          "variacao": "+0,15",
+          "unidade": "R$/Saca de 50 Kg",
+          "data": "22/06/2026"
         }
       ]
     },
     "laranja": {
       "indicadores": [
         {
-          "indicador": "Julho/26",
-          "valor": "154,60",
-          "variacao": "-3,90",
-          "unidade": "",
-          "data": "Julho/26"
+          "indicador": "22/06/2026",
+          "valor": "29,50",
+          "variacao": "+17,34",
+          "unidade": "R$ a prazo/Caixa 40,8 Kg",
+          "data": "22/06/2026"
         }
       ]
     },
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda)",
+          "indicador": "Dolar (venda) (22/06/2026)",
           "valor": "5.1395",
           "variacao": "",
           "unidade": "BRL/USD",
