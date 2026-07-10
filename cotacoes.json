@@ -1,25 +1,25 @@
 {
-  "gerado_em": "10/07/2026 16:49",
+  "gerado_em": "10/07/2026 20:58",
   "dados": {
     "soja": {
       "indicadores": [
         {
-          "indicador": "09/07/2026",
-          "valor": "140,25",
-          "variacao": "-0,11",
-          "unidade": "Valor R$",
-          "data": "09/07/2026"
+          "indicador": "Sorriso/MT (Sindicato)",
+          "valor": "112,40",
+          "variacao": "-",
+          "unidade": "R$/Sc 60kg",
+          "data": "10/07/2026"
         }
       ]
     },
     "milho": {
       "indicadores": [
         {
-          "indicador": "09/07/2026",
-          "valor": "64,37",
-          "variacao": "0,00",
-          "unidade": "Valor (R$/sc 60 kg)",
-          "data": "09/07/2026"
+          "indicador": "Sorriso/MT (Sindicato)",
+          "valor": "40,20",
+          "variacao": "-",
+          "unidade": "R$/Sc 60kg",
+          "data": "10/07/2026"
         }
       ]
     },
