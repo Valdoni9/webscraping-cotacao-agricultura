@@ -1,12 +1,12 @@
 {
-  "gerado_em": "23/07/2026 16:19",
+  "gerado_em": "23/07/2026 20:49",
   "dados": {
     "soja": {
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "121,70",
-          "variacao": "+0,50",
+          "valor": "120,70",
+          "variacao": "-0,82",
           "unidade": "R$/Sc 60kg",
           "data": "23/07/2026"
         }
@@ -16,8 +16,8 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "42,15",
-          "variacao": "+1,81",
+          "valor": "42,00",
+          "variacao": "-0,36",
           "unidade": "R$/Sc 60kg",
           "data": "23/07/2026"
         }
@@ -27,8 +27,8 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "126,53",
-          "variacao": "-0,89",
+          "valor": "124,60",
+          "variacao": "-1,53",
           "unidade": "R$/@ 15kg",
           "data": "23/07/2026"
         }
@@ -147,11 +147,11 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda) (22/07/2026)",
-          "valor": "5.0638",
+          "indicador": "Dolar (venda)",
+          "valor": "5.0807",
           "variacao": "",
           "unidade": "BRL/USD",
-          "data": "22/07/2026"
+          "data": "23/07/2026"
         }
       ]
     }
