@@ -1,5 +1,5 @@
 {
-  "gerado_em": "29/07/2026 12:54",
+  "gerado_em": "29/07/2026 16:14",
   "dados": {
     "soja": {
       "indicadores": [
@@ -147,11 +147,11 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda) (28/07/2026)",
-          "valor": "5.1177",
+          "indicador": "Dolar (venda)",
+          "valor": "5.1217",
           "variacao": "",
           "unidade": "BRL/USD",
-          "data": "28/07/2026"
+          "data": "29/07/2026"
         }
       ]
     }
