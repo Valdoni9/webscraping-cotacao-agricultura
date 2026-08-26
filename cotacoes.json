@@ -1,12 +1,12 @@
 {
-  "gerado_em": "26/08/2026 16:09",
+  "gerado_em": "26/08/2026 22:34",
   "dados": {
     "soja": {
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "129,90",
-          "variacao": "+0,39",
+          "valor": "130,40",
+          "variacao": "+0,38",
           "unidade": "R$/Sc 60kg",
           "data": "26/08/2026"
         }
@@ -16,7 +16,7 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "45,50",
+          "valor": "45,80",
           "variacao": "+0,66",
           "unidade": "R$/Sc 60kg",
           "data": "26/08/2026"
@@ -27,8 +27,8 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "133,13",
-          "variacao": "+1,69",
+          "valor": "133,47",
+          "variacao": "+0,26",
           "unidade": "R$/@ 15kg",
           "data": "26/08/2026"
         }
@@ -92,11 +92,11 @@
     "suinos": {
       "indicadores": [
         {
-          "indicador": "25/08/2026",
-          "valor": "5,02",
+          "indicador": "São Paulo",
+          "valor": "5,55",
           "variacao": "0,00",
-          "unidade": "R$/Kg",
-          "data": "25/08/2026"
+          "unidade": "Preço - R$/kg",
+          "data": "São Paulo"
         }
       ]
     },
@@ -114,33 +114,33 @@
     "cafe": {
       "indicadores": [
         {
-          "indicador": "25/08/2026",
-          "valor": "1.821,25",
-          "variacao": "-0,29",
+          "indicador": "26/08/2026",
+          "valor": "1.800,79",
+          "variacao": "-1,12",
           "unidade": "Valor R$",
-          "data": "25/08/2026"
+          "data": "26/08/2026"
         }
       ]
     },
     "sucroenergetico": {
       "indicadores": [
         {
-          "indicador": "25/08/2026",
-          "valor": "106,52",
-          "variacao": "+0,96",
+          "indicador": "26/08/2026",
+          "valor": "107,98",
+          "variacao": "+1,37",
           "unidade": "R$/Saca de 50 Kg",
-          "data": "25/08/2026"
+          "data": "26/08/2026"
         }
       ]
     },
     "laranja": {
       "indicadores": [
         {
-          "indicador": "25/08/2026",
+          "indicador": "26/08/2026",
           "valor": "31,18",
           "variacao": "0,00",
           "unidade": "R$ a prazo/Caixa 40,8 Kg",
-          "data": "25/08/2026"
+          "data": "26/08/2026"
         }
       ]
     },
