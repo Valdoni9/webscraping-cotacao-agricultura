@@ -1,5 +1,5 @@
 {
-  "gerado_em": "29/08/2026 02:33",
+  "gerado_em": "31/08/2026 17:45",
   "dados": {
     "soja": {
       "indicadores": [
@@ -8,7 +8,7 @@
           "valor": "132,00",
           "variacao": "+0,30",
           "unidade": "R$/Sc 60kg",
-          "data": "29/08/2026"
+          "data": "31/08/2026"
         }
       ]
     },
@@ -27,10 +27,10 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "133,45",
-          "variacao": "+0,08",
+          "valor": "133,75",
+          "variacao": "+0,22",
           "unidade": "R$/@ 15kg",
-          "data": "29/08/2026"
+          "data": "31/08/2026"
         }
       ]
     },
@@ -52,7 +52,7 @@
           "valor": "96,00",
           "variacao": "+9,09",
           "unidade": "R$/Sc 50kg",
-          "data": "29/08/2026"
+          "data": "31/08/2026"
         }
       ]
     },
@@ -74,7 +74,7 @@
           "valor": "321,00",
           "variacao": "325,00",
           "unidade": "R$/@",
-          "data": "29/08/2026"
+          "data": "31/08/2026"
         }
       ]
     },
@@ -147,11 +147,11 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda) (28/08/2026)",
-          "valor": "5.2005",
+          "indicador": "Dolar (venda)",
+          "valor": "5.1816",
           "variacao": "",
           "unidade": "BRL/USD",
-          "data": "28/08/2026"
+          "data": "31/08/2026"
         }
       ]
     }
