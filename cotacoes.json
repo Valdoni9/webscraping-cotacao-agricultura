@@ -1,12 +1,12 @@
 {
-  "gerado_em": "01/09/2026 18:02",
+  "gerado_em": "01/09/2026 22:09",
   "dados": {
     "soja": {
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "132,50",
-          "variacao": "+0,38",
+          "valor": "133,60",
+          "variacao": "+0,83",
           "unidade": "R$/Sc 60kg",
           "data": "01/09/2026"
         }
@@ -15,11 +15,11 @@
     "milho": {
       "indicadores": [
         {
-          "indicador": "31/08/2026",
-          "valor": "70,23",
-          "variacao": "+1,04",
-          "unidade": "Valor (R$/sc 60 kg)",
-          "data": "31/08/2026"
+          "indicador": "Sorriso/MT (Sindicato)",
+          "valor": "47,80",
+          "variacao": "-",
+          "unidade": "R$/Sc 60kg",
+          "data": "01/09/2026"
         }
       ]
     },
@@ -114,33 +114,33 @@
     "cafe": {
       "indicadores": [
         {
-          "indicador": "31/08/2026",
-          "valor": "1.748,44",
-          "variacao": "+1,15",
+          "indicador": "01/09/2026",
+          "valor": "1.730,56",
+          "variacao": "-1,02",
           "unidade": "Valor R$",
-          "data": "31/08/2026"
+          "data": "01/09/2026"
         }
       ]
     },
     "sucroenergetico": {
       "indicadores": [
         {
-          "indicador": "31/08/2026",
-          "valor": "113,75",
-          "variacao": "+1,51",
+          "indicador": "01/09/2026",
+          "valor": "114,51",
+          "variacao": "+0,67",
           "unidade": "R$/Saca de 50 Kg",
-          "data": "31/08/2026"
+          "data": "01/09/2026"
         }
       ]
     },
     "laranja": {
       "indicadores": [
         {
-          "indicador": "31/08/2026",
+          "indicador": "01/09/2026",
           "valor": "31,18",
           "variacao": "0,00",
           "unidade": "R$ a prazo/Caixa 40,8 Kg",
-          "data": "31/08/2026"
+          "data": "01/09/2026"
         }
       ]
     },
