@@ -1,5 +1,5 @@
 {
-  "gerado_em": "03/09/2026 14:47",
+  "gerado_em": "03/09/2026 18:12",
   "dados": {
     "soja": {
       "indicadores": [
@@ -27,8 +27,8 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "136,11",
-          "variacao": "+1,84",
+          "valor": "138,87",
+          "variacao": "+2,03",
           "unidade": "R$/@ 15kg",
           "data": "03/09/2026"
         }
@@ -147,11 +147,11 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda) (02/09/2026)",
-          "valor": "5.1273",
+          "indicador": "Dolar (venda)",
+          "valor": "5.0962",
           "variacao": "",
           "unidade": "BRL/USD",
-          "data": "02/09/2026"
+          "data": "03/09/2026"
         }
       ]
     }
