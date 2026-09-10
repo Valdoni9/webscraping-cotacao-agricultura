@@ -1,12 +1,12 @@
 {
-  "gerado_em": "10/09/2026 17:56",
+  "gerado_em": "10/09/2026 22:03",
   "dados": {
     "soja": {
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "134,10",
-          "variacao": "-0,37",
+          "valor": "134,70",
+          "variacao": "+0,45",
           "unidade": "R$/Sc 60kg",
           "data": "10/09/2026"
         }
@@ -16,8 +16,8 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "48,70",
-          "variacao": "-0,61",
+          "valor": "49,00",
+          "variacao": "+0,62",
           "unidade": "R$/Sc 60kg",
           "data": "10/09/2026"
         }
@@ -71,8 +71,8 @@
       "indicadores": [
         {
           "indicador": "MT Norte",
-          "valor": "324,50",
-          "variacao": "328,00",
+          "valor": "326,50",
+          "variacao": "330,00",
           "unidade": "R$/@",
           "data": "10/09/2026"
         }
@@ -92,11 +92,11 @@
     "suinos": {
       "indicadores": [
         {
-          "indicador": "09/09/2026",
+          "indicador": "10/09/2026",
           "valor": "5,04",
           "variacao": "0,00%",
           "unidade": "R$/Kg",
-          "data": "09/09/2026"
+          "data": "10/09/2026"
         }
       ]
     },
@@ -114,33 +114,33 @@
     "cafe": {
       "indicadores": [
         {
-          "indicador": "09/09/2026",
-          "valor": "1.647,29",
-          "variacao": "0,72%",
+          "indicador": "10/09/2026",
+          "valor": "1.618,91",
+          "variacao": "-1,72%",
           "unidade": "Valor R$",
-          "data": "09/09/2026"
+          "data": "10/09/2026"
         }
       ]
     },
     "sucroenergetico": {
       "indicadores": [
         {
-          "indicador": "09/09/2026",
-          "valor": "118,28",
-          "variacao": "0,80%",
+          "indicador": "10/09/2026",
+          "valor": "119,11",
+          "variacao": "0,70%",
           "unidade": "R$/Saca de 50 Kg",
-          "data": "09/09/2026"
+          "data": "10/09/2026"
         }
       ]
     },
     "laranja": {
       "indicadores": [
         {
-          "indicador": "09/09/2026",
-          "valor": "30,92",
-          "variacao": "0,91%",
+          "indicador": "10/09/2026",
+          "valor": "30,58",
+          "variacao": "-1,10%",
           "unidade": "R$ a prazo/Caixa 40,8 Kg",
-          "data": "09/09/2026"
+          "data": "10/09/2026"
         }
       ]
     },
