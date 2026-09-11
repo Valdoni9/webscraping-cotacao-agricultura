@@ -1,5 +1,5 @@
 {
-  "gerado_em": "10/09/2026 22:03",
+  "gerado_em": "11/09/2026 14:41",
   "dados": {
     "soja": {
       "indicadores": [
@@ -8,7 +8,7 @@
           "valor": "134,70",
           "variacao": "+0,45",
           "unidade": "R$/Sc 60kg",
-          "data": "10/09/2026"
+          "data": "11/09/2026"
         }
       ]
     },
@@ -19,7 +19,7 @@
           "valor": "49,00",
           "variacao": "+0,62",
           "unidade": "R$/Sc 60kg",
-          "data": "10/09/2026"
+          "data": "11/09/2026"
         }
       ]
     },
@@ -30,18 +30,18 @@
           "valor": "137,04",
           "variacao": "-",
           "unidade": "R$/@ 15kg",
-          "data": "10/09/2026"
+          "data": "11/09/2026"
         }
       ]
     },
     "trigo": {
       "indicadores": [
         {
-          "indicador": "09/09/2026",
-          "valor": "1.462,05",
-          "variacao": "0,04%",
+          "indicador": "10/09/2026",
+          "valor": "1.473,16",
+          "variacao": "0,76%",
           "unidade": "R$/t",
-          "data": "09/09/2026"
+          "data": "10/09/2026"
         }
       ]
     },
@@ -52,7 +52,7 @@
           "valor": "96,00",
           "variacao": "+9,09",
           "unidade": "R$/Sc 50kg",
-          "data": "10/09/2026"
+          "data": "11/09/2026"
         }
       ]
     },
@@ -74,18 +74,18 @@
           "valor": "326,50",
           "variacao": "330,00",
           "unidade": "R$/@",
-          "data": "10/09/2026"
+          "data": "11/09/2026"
         }
       ]
     },
     "frango": {
       "indicadores": [
         {
-          "indicador": "09/09/2026",
-          "valor": "7,69",
-          "variacao": "0,79%",
+          "indicador": "10/09/2026",
+          "valor": "7,74",
+          "variacao": "0,65%",
           "unidade": "R$/Kg",
-          "data": "09/09/2026"
+          "data": "10/09/2026"
         }
       ]
     },
@@ -147,7 +147,7 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda)",
+          "indicador": "Dolar (venda) (10/09/2026)",
           "valor": "5.1149",
           "variacao": "",
           "unidade": "BRL/USD",
