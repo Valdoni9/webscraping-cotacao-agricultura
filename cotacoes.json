@@ -1,11 +1,11 @@
 {
-  "gerado_em": "15/09/2026 18:34",
+  "gerado_em": "15/09/2026 22:30",
   "dados": {
     "soja": {
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "135,50",
+          "valor": "135,80",
           "variacao": "+0,22",
           "unidade": "R$/Sc 60kg",
           "data": "15/09/2026"
@@ -16,8 +16,8 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "49,90",
-          "variacao": "+0,60",
+          "valor": "49,50",
+          "variacao": "-0,80",
           "unidade": "R$/Sc 60kg",
           "data": "15/09/2026"
         }
@@ -57,15 +57,7 @@
       ]
     },
     "sorgo": {
-      "indicadores": [
-        {
-          "indicador": "Média RS (Clicmercado)",
-          "valor": "50,00",
-          "variacao": "0,00",
-          "unidade": "Preço (R$/sc)",
-          "data": "Média RS (Clicmercado)"
-        }
-      ]
+      "indicadores": []
     },
     "boi": {
       "indicadores": [
@@ -81,11 +73,11 @@
     "frango": {
       "indicadores": [
         {
-          "indicador": "14/09/2026",
-          "valor": "7,87",
-          "variacao": "+1,42",
+          "indicador": "15/09/2026",
+          "valor": "7,94",
+          "variacao": "0,89%",
           "unidade": "R$/Kg",
-          "data": "14/09/2026"
+          "data": "15/09/2026"
         }
       ]
     },
@@ -125,22 +117,22 @@
     "sucroenergetico": {
       "indicadores": [
         {
-          "indicador": "14/09/2026",
-          "valor": "119,41",
-          "variacao": "+0,19",
+          "indicador": "15/09/2026",
+          "valor": "118,15",
+          "variacao": "-1,06%",
           "unidade": "R$/Saca de 50 Kg",
-          "data": "14/09/2026"
+          "data": "15/09/2026"
         }
       ]
     },
     "laranja": {
       "indicadores": [
         {
-          "indicador": "14/09/2026",
-          "valor": "30,50",
-          "variacao": "-2,09",
+          "indicador": "15/09/2026",
+          "valor": "30,31",
+          "variacao": "-0,62%",
           "unidade": "R$ a prazo/Caixa 40,8 Kg",
-          "data": "14/09/2026"
+          "data": "15/09/2026"
         }
       ]
     },
