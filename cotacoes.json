@@ -1,5 +1,5 @@
 {
-  "gerado_em": "15/09/2026 22:30",
+  "gerado_em": "16/09/2026 15:12",
   "dados": {
     "soja": {
       "indicadores": [
@@ -8,7 +8,7 @@
           "valor": "135,80",
           "variacao": "+0,22",
           "unidade": "R$/Sc 60kg",
-          "data": "15/09/2026"
+          "data": "16/09/2026"
         }
       ]
     },
@@ -19,7 +19,7 @@
           "valor": "49,50",
           "variacao": "-0,80",
           "unidade": "R$/Sc 60kg",
-          "data": "15/09/2026"
+          "data": "16/09/2026"
         }
       ]
     },
@@ -30,18 +30,18 @@
           "valor": "136,33",
           "variacao": "+0,72",
           "unidade": "R$/@ 15kg",
-          "data": "15/09/2026"
+          "data": "16/09/2026"
         }
       ]
     },
     "trigo": {
       "indicadores": [
         {
-          "indicador": "14/09/2026",
-          "valor": "1.504,29",
-          "variacao": "+0,98",
+          "indicador": "15/09/2026",
+          "valor": "1.509,58",
+          "variacao": "0,35%",
           "unidade": "R$/t",
-          "data": "14/09/2026"
+          "data": "15/09/2026"
         }
       ]
     },
@@ -52,12 +52,20 @@
           "valor": "96,00",
           "variacao": "+9,09",
           "unidade": "R$/Sc 50kg",
-          "data": "15/09/2026"
+          "data": "16/09/2026"
         }
       ]
     },
     "sorgo": {
-      "indicadores": []
+      "indicadores": [
+        {
+          "indicador": "Média RS (Clicmercado)",
+          "valor": "50,00",
+          "variacao": "0,00",
+          "unidade": "Preço (R$/sc)",
+          "data": "Média RS (Clicmercado)"
+        }
+      ]
     },
     "boi": {
       "indicadores": [
@@ -66,7 +74,7 @@
           "valor": "323,50",
           "variacao": "327,00",
           "unidade": "R$/@",
-          "data": "15/09/2026"
+          "data": "16/09/2026"
         }
       ]
     },
@@ -84,11 +92,11 @@
     "suinos": {
       "indicadores": [
         {
-          "indicador": "14/09/2026",
-          "valor": "5,10",
-          "variacao": "+0,39",
+          "indicador": "15/09/2026",
+          "valor": "5,08",
+          "variacao": "-0,39%",
           "unidade": "R$/Kg",
-          "data": "14/09/2026"
+          "data": "15/09/2026"
         }
       ]
     },
@@ -106,11 +114,11 @@
     "cafe": {
       "indicadores": [
         {
-          "indicador": "14/09/2026",
-          "valor": "1.594,86",
-          "variacao": "-0,13",
+          "indicador": "15/09/2026",
+          "valor": "1.588,43",
+          "variacao": "-0,40%",
           "unidade": "Valor R$",
-          "data": "14/09/2026"
+          "data": "15/09/2026"
         }
       ]
     },
@@ -139,7 +147,7 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda)",
+          "indicador": "Dolar (venda) (15/09/2026)",
           "valor": "5.1490",
           "variacao": "",
           "unidade": "BRL/USD",
