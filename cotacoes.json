@@ -1,5 +1,5 @@
 {
-  "gerado_em": "29/09/2026 19:42",
+  "gerado_em": "29/09/2026 23:15",
   "dados": {
     "soja": {
       "indicadores": [
@@ -37,11 +37,11 @@
     "trigo": {
       "indicadores": [
         {
-          "indicador": "28/09/2026",
-          "valor": "1.529,62",
-          "variacao": "-0,57%",
+          "indicador": "29/09/2026",
+          "valor": "1.536,73",
+          "variacao": "0,46%",
           "unidade": "R$/t",
-          "data": "28/09/2026"
+          "data": "29/09/2026"
         }
       ]
     },
@@ -81,22 +81,22 @@
     "frango": {
       "indicadores": [
         {
-          "indicador": "28/09/2026",
+          "indicador": "29/09/2026",
           "valor": "8,31",
           "variacao": "0,00%",
           "unidade": "R$/Kg",
-          "data": "28/09/2026"
+          "data": "29/09/2026"
         }
       ]
     },
     "suinos": {
       "indicadores": [
         {
-          "indicador": "28/09/2026",
-          "valor": "5,82",
-          "variacao": "4,68%",
+          "indicador": "29/09/2026",
+          "valor": "6,13",
+          "variacao": "5,33%",
           "unidade": "R$/Kg",
-          "data": "28/09/2026"
+          "data": "29/09/2026"
         }
       ]
     },
@@ -114,33 +114,33 @@
     "cafe": {
       "indicadores": [
         {
-          "indicador": "28/09/2026",
-          "valor": "1.556,57",
-          "variacao": "1,19%",
+          "indicador": "29/09/2026",
+          "valor": "1.564,02",
+          "variacao": "0,48%",
           "unidade": "Valor R$",
-          "data": "28/09/2026"
+          "data": "29/09/2026"
         }
       ]
     },
     "sucroenergetico": {
       "indicadores": [
         {
-          "indicador": "28/09/2026",
-          "valor": "120,24",
-          "variacao": "-0,32%",
+          "indicador": "29/09/2026",
+          "valor": "121,27",
+          "variacao": "0,86%",
           "unidade": "R$/Saca de 50 Kg",
-          "data": "28/09/2026"
+          "data": "29/09/2026"
         }
       ]
     },
     "laranja": {
       "indicadores": [
         {
-          "indicador": "28/09/2026",
+          "indicador": "29/09/2026",
           "valor": "28,77",
-          "variacao": "-1,91%",
+          "variacao": "0,00%",
           "unidade": "R$ a prazo/Caixa 40,8 Kg",
-          "data": "28/09/2026"
+          "data": "29/09/2026"
         }
       ]
     },
