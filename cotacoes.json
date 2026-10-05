@@ -1,14 +1,14 @@
 {
-  "gerado_em": "02/10/2026 23:23",
+  "gerado_em": "05/10/2026 19:25",
   "dados": {
     "soja": {
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "139,90",
-          "variacao": "-0,14",
+          "valor": "139,30",
+          "variacao": "-0,43",
           "unidade": "R$/Sc 60kg",
-          "data": "02/10/2026"
+          "data": "05/10/2026"
         }
       ]
     },
@@ -16,10 +16,10 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "49,00",
-          "variacao": "-1,01",
+          "valor": "48,20",
+          "variacao": "-1,63",
           "unidade": "R$/Sc 60kg",
-          "data": "02/10/2026"
+          "data": "05/10/2026"
         }
       ]
     },
@@ -27,10 +27,10 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "129,76",
-          "variacao": "-0,70",
+          "valor": "130,96",
+          "variacao": "+0,92",
           "unidade": "R$/@ 15kg",
-          "data": "02/10/2026"
+          "data": "05/10/2026"
         }
       ]
     },
@@ -52,7 +52,7 @@
           "valor": "96,00",
           "variacao": "+9,09",
           "unidade": "R$/Sc 50kg",
-          "data": "02/10/2026"
+          "data": "05/10/2026"
         }
       ]
     },
@@ -71,10 +71,10 @@
       "indicadores": [
         {
           "indicador": "MT Norte",
-          "valor": "334,50",
-          "variacao": "338,00",
+          "valor": "336,50",
+          "variacao": "340,00",
           "unidade": "R$/@",
-          "data": "02/10/2026"
+          "data": "05/10/2026"
         }
       ]
     },
@@ -148,10 +148,10 @@
       "indicadores": [
         {
           "indicador": "Dolar (venda)",
-          "valor": "5.2238",
+          "valor": "4.9859",
           "variacao": "",
           "unidade": "BRL/USD",
-          "data": "02/10/2026"
+          "data": "05/10/2026"
         }
       ]
     }
