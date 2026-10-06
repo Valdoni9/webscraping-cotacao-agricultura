@@ -1,5 +1,5 @@
 {
-  "gerado_em": "05/10/2026 21:42",
+  "gerado_em": "06/10/2026 01:01",
   "dados": {
     "soja": {
       "indicadores": [
@@ -8,7 +8,7 @@
           "valor": "139,30",
           "variacao": "-0,43",
           "unidade": "R$/Sc 60kg",
-          "data": "05/10/2026"
+          "data": "06/10/2026"
         }
       ]
     },
@@ -19,7 +19,7 @@
           "valor": "48,20",
           "variacao": "-1,63",
           "unidade": "R$/Sc 60kg",
-          "data": "05/10/2026"
+          "data": "06/10/2026"
         }
       ]
     },
@@ -30,18 +30,18 @@
           "valor": "130,96",
           "variacao": "+0,92",
           "unidade": "R$/@ 15kg",
-          "data": "05/10/2026"
+          "data": "06/10/2026"
         }
       ]
     },
     "trigo": {
       "indicadores": [
         {
-          "indicador": "02/10/2026",
-          "valor": "1.553,71",
-          "variacao": "1,00%",
+          "indicador": "05/10/2026",
+          "valor": "1.551,32",
+          "variacao": "-0,15%",
           "unidade": "R$/t",
-          "data": "02/10/2026"
+          "data": "05/10/2026"
         }
       ]
     },
@@ -52,7 +52,7 @@
           "valor": "96,00",
           "variacao": "+9,09",
           "unidade": "R$/Sc 50kg",
-          "data": "05/10/2026"
+          "data": "06/10/2026"
         }
       ]
     },
@@ -74,29 +74,29 @@
           "valor": "336,50",
           "variacao": "340,00",
           "unidade": "R$/@",
-          "data": "05/10/2026"
+          "data": "06/10/2026"
         }
       ]
     },
     "frango": {
       "indicadores": [
         {
-          "indicador": "02/10/2026",
-          "valor": "8,33",
-          "variacao": "0,36%",
+          "indicador": "05/10/2026",
+          "valor": "8,32",
+          "variacao": "-0,12%",
           "unidade": "R$/Kg",
-          "data": "02/10/2026"
+          "data": "05/10/2026"
         }
       ]
     },
     "suinos": {
       "indicadores": [
         {
-          "indicador": "02/10/2026",
-          "valor": "6,18",
-          "variacao": "0,00%",
+          "indicador": "05/10/2026",
+          "valor": "6,29",
+          "variacao": "1,78%",
           "unidade": "R$/Kg",
-          "data": "02/10/2026"
+          "data": "05/10/2026"
         }
       ]
     },
@@ -114,40 +114,40 @@
     "cafe": {
       "indicadores": [
         {
-          "indicador": "02/10/2026",
-          "valor": "1.572,01",
-          "variacao": "-0,34%",
+          "indicador": "05/10/2026",
+          "valor": "1.568,56",
+          "variacao": "-0,22%",
           "unidade": "Valor R$",
-          "data": "02/10/2026"
+          "data": "05/10/2026"
         }
       ]
     },
     "sucroenergetico": {
       "indicadores": [
         {
-          "indicador": "02/10/2026",
-          "valor": "123,37",
-          "variacao": "1,77%",
+          "indicador": "05/10/2026",
+          "valor": "122,78",
+          "variacao": "-0,48%",
           "unidade": "R$/Saca de 50 Kg",
-          "data": "02/10/2026"
+          "data": "05/10/2026"
         }
       ]
     },
     "laranja": {
       "indicadores": [
         {
-          "indicador": "02/10/2026",
-          "valor": "29,69",
-          "variacao": "2,38%",
+          "indicador": "05/10/2026",
+          "valor": "29,58",
+          "variacao": "-0,37%",
           "unidade": "R$ a prazo/Caixa 40,8 Kg",
-          "data": "02/10/2026"
+          "data": "05/10/2026"
         }
       ]
     },
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda)",
+          "indicador": "Dolar (venda) (05/10/2026)",
           "valor": "4.9859",
           "variacao": "",
           "unidade": "BRL/USD",
