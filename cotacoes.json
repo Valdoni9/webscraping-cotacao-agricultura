@@ -1,12 +1,12 @@
 {
-  "gerado_em": "08/10/2026 17:38",
+  "gerado_em": "08/10/2026 20:20",
   "dados": {
     "soja": {
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "138,20",
-          "variacao": "-0,36",
+          "valor": "137,40",
+          "variacao": "-0,58",
           "unidade": "R$/Sc 60kg",
           "data": "08/10/2026"
         }
@@ -16,8 +16,8 @@
       "indicadores": [
         {
           "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "47,50",
-          "variacao": "-1,04",
+          "valor": "47,00",
+          "variacao": "-1,05",
           "unidade": "R$/Sc 60kg",
           "data": "08/10/2026"
         }
