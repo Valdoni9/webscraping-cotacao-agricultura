@@ -1,5 +1,5 @@
 {
-  "gerado_em": "22/10/2026 22:50",
+  "gerado_em": "23/10/2026 15:31",
   "dados": {
     "soja": {
       "indicadores": [
@@ -8,7 +8,7 @@
           "valor": "133,80",
           "variacao": "-0,15",
           "unidade": "R$/Sc 60kg",
-          "data": "22/10/2026"
+          "data": "23/10/2026"
         }
       ]
     },
@@ -19,7 +19,7 @@
           "valor": "45,20",
           "variacao": "-0,88",
           "unidade": "R$/Sc 60kg",
-          "data": "22/10/2026"
+          "data": "23/10/2026"
         }
       ]
     },
@@ -30,7 +30,7 @@
           "valor": "134,73",
           "variacao": "+6,67",
           "unidade": "R$/@ 15kg",
-          "data": "22/10/2026"
+          "data": "23/10/2026"
         }
       ]
     },
@@ -52,7 +52,7 @@
           "valor": "96,00",
           "variacao": "+9,09",
           "unidade": "R$/Sc 50kg",
-          "data": "22/10/2026"
+          "data": "23/10/2026"
         }
       ]
     },
@@ -74,7 +74,7 @@
           "valor": "351,00",
           "variacao": "355,00",
           "unidade": "R$/@",
-          "data": "22/10/2026"
+          "data": "23/10/2026"
         }
       ]
     },
@@ -147,7 +147,7 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda)",
+          "indicador": "Dolar (venda) (22/10/2026)",
           "valor": "5.0383",
           "variacao": "",
           "unidade": "BRL/USD",
