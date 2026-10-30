@@ -1,5 +1,5 @@
 {
-  "gerado_em": "30/10/2026 19:46",
+  "gerado_em": "30/10/2026 23:20",
   "dados": {
     "soja": {
       "indicadores": [
@@ -37,11 +37,11 @@
     "trigo": {
       "indicadores": [
         {
-          "indicador": "29/10/2026",
-          "valor": "1.578,12",
-          "variacao": "0,43%",
+          "indicador": "30/10/2026",
+          "valor": "1.569,82",
+          "variacao": "-0,53%",
           "unidade": "R$/t",
-          "data": "29/10/2026"
+          "data": "30/10/2026"
         }
       ]
     },
@@ -81,22 +81,22 @@
     "frango": {
       "indicadores": [
         {
-          "indicador": "29/10/2026",
-          "valor": "8,24",
-          "variacao": "0,00%",
+          "indicador": "30/10/2026",
+          "valor": "8,22",
+          "variacao": "-0,24%",
           "unidade": "R$/Kg",
-          "data": "29/10/2026"
+          "data": "30/10/2026"
         }
       ]
     },
     "suinos": {
       "indicadores": [
         {
-          "indicador": "29/10/2026",
-          "valor": "6,96",
-          "variacao": "0,00%",
+          "indicador": "30/10/2026",
+          "valor": "6,95",
+          "variacao": "-0,14%",
           "unidade": "R$/Kg",
-          "data": "29/10/2026"
+          "data": "30/10/2026"
         }
       ]
     },
@@ -114,33 +114,33 @@
     "cafe": {
       "indicadores": [
         {
-          "indicador": "29/10/2026",
-          "valor": "1.590,72",
-          "variacao": "-0,20%",
+          "indicador": "30/10/2026",
+          "valor": "1.598,37",
+          "variacao": "0,48%",
           "unidade": "Valor R$",
-          "data": "29/10/2026"
+          "data": "30/10/2026"
         }
       ]
     },
     "sucroenergetico": {
       "indicadores": [
         {
-          "indicador": "29/10/2026",
-          "valor": "129,97",
-          "variacao": "0,96%",
+          "indicador": "30/10/2026",
+          "valor": "128,35",
+          "variacao": "-1,25%",
           "unidade": "R$/Saca de 50 Kg",
-          "data": "29/10/2026"
+          "data": "30/10/2026"
         }
       ]
     },
     "laranja": {
       "indicadores": [
         {
-          "indicador": "29/10/2026",
-          "valor": "27,29",
-          "variacao": "1,22%",
+          "indicador": "30/10/2026",
+          "valor": "28,42",
+          "variacao": "4,14%",
           "unidade": "R$ a prazo/Caixa 40,8 Kg",
-          "data": "29/10/2026"
+          "data": "30/10/2026"
         }
       ]
     },
