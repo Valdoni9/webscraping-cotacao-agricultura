@@ -1,157 +1,53 @@
 {
-  "gerado_em": "12/11/2026 01:43",
+  "gerado_em": "12/11/2026 18:38",
   "dados": {
     "soja": {
-      "indicadores": [
-        {
-          "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "134,85",
-          "variacao": "-0,22",
-          "unidade": "R$/Sc 60kg",
-          "data": "12/11/2026"
-        }
-      ]
+      "indicadores": []
     },
     "milho": {
-      "indicadores": [
-        {
-          "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "44,00",
-          "variacao": "+2,33",
-          "unidade": "R$/Sc 60kg",
-          "data": "12/11/2026"
-        }
-      ]
+      "indicadores": []
     },
     "algodao": {
-      "indicadores": [
-        {
-          "indicador": "Sorriso/MT (Sindicato)",
-          "valor": "128,07",
-          "variacao": "+1,31",
-          "unidade": "R$/@ 15kg",
-          "data": "12/11/2026"
-        }
-      ]
+      "indicadores": []
     },
     "trigo": {
-      "indicadores": [
-        {
-          "indicador": "11/11/2026",
-          "valor": "1.561,78",
-          "variacao": "-0,14%",
-          "unidade": "R$/t",
-          "data": "11/11/2026"
-        }
-      ]
+      "indicadores": []
     },
     "arroz": {
-      "indicadores": [
-        {
-          "indicador": "Sinop/MT e Sorriso/MT",
-          "valor": "96,00",
-          "variacao": "+9,09",
-          "unidade": "R$/Sc 50kg",
-          "data": "12/11/2026"
-        }
-      ]
+      "indicadores": []
     },
     "sorgo": {
-      "indicadores": [
-        {
-          "indicador": "Média RS (Clicmercado)",
-          "valor": "50,00",
-          "variacao": "0,00",
-          "unidade": "Preço (R$/sc)",
-          "data": "Média RS (Clicmercado)"
-        }
-      ]
+      "indicadores": []
     },
     "boi": {
-      "indicadores": [
-        {
-          "indicador": "MT Norte",
-          "valor": "369,00",
-          "variacao": "373,00",
-          "unidade": "R$/@",
-          "data": "12/11/2026"
-        }
-      ]
+      "indicadores": []
     },
     "frango": {
-      "indicadores": [
-        {
-          "indicador": "11/11/2026",
-          "valor": "8,13",
-          "variacao": "0,00%",
-          "unidade": "R$/Kg",
-          "data": "11/11/2026"
-        }
-      ]
+      "indicadores": []
     },
     "suinos": {
-      "indicadores": [
-        {
-          "indicador": "11/11/2026",
-          "valor": "6,26",
-          "variacao": "-1,57%",
-          "unidade": "R$/Kg",
-          "data": "11/11/2026"
-        }
-      ]
+      "indicadores": []
     },
     "leite": {
-      "indicadores": [
-        {
-          "indicador": "RS",
-          "valor": "2,6544",
-          "variacao": "0,00",
-          "unidade": "Preço (R$/Litro)",
-          "data": "RS"
-        }
-      ]
+      "indicadores": []
     },
     "cafe": {
-      "indicadores": [
-        {
-          "indicador": "11/11/2026",
-          "valor": "1.593,28",
-          "variacao": "-1,12%",
-          "unidade": "Valor R$",
-          "data": "11/11/2026"
-        }
-      ]
+      "indicadores": []
     },
     "sucroenergetico": {
-      "indicadores": [
-        {
-          "indicador": "11/11/2026",
-          "valor": "128,86",
-          "variacao": "-0,02%",
-          "unidade": "R$/Saca de 50 Kg",
-          "data": "11/11/2026"
-        }
-      ]
+      "indicadores": []
     },
     "laranja": {
-      "indicadores": [
-        {
-          "indicador": "11/11/2026",
-          "valor": "28,33",
-          "variacao": "-1,80%",
-          "unidade": "R$ a prazo/Caixa 40,8 Kg",
-          "data": "11/11/2026"
-        }
-      ]
+      "indicadores": []
     },
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda) (11/11/2026)",
-          "valor": "5.5606",
+          "indicador": "Dolar (venda)",
+          "valor": "5.6143",
           "variacao": "",
           "unidade": "BRL/USD",
-          "data": "11/11/2026"
+          "data": "12/11/2026"
         }
       ]
     }
