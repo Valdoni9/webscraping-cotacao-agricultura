@@ -1,5 +1,5 @@
 {
-  "gerado_em": "26/11/2026 02:31",
+  "gerado_em": "26/11/2026 19:54",
   "dados": {
     "soja": {
       "indicadores": []
@@ -43,11 +43,11 @@
     "cambio": {
       "indicadores": [
         {
-          "indicador": "Dolar (venda) (25/11/2026)",
-          "valor": "5.8825",
+          "indicador": "Dolar (venda)",
+          "valor": "5.7446",
           "variacao": "",
           "unidade": "BRL/USD",
-          "data": "25/11/2026"
+          "data": "26/11/2026"
         }
       ]
     }
